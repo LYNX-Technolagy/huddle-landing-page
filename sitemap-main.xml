@@ -11,19 +11,19 @@
 
     <!-- Homepage -->
     <url>
-        <loc>https://huddle.com/</loc>
+        <loc>https://joinhuddleup.netlify.app/</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <image:image>
-            <image:loc>https://huddle.com/assets/images/og-image.jpg</image:loc>
+            <image:loc>https://joinhuddleup.netlify.app/assets/images/og-image.jpg</image:loc>
             <image:caption>Huddle — Find Your Game</image:caption>
         </image:image>
     </url>
 
     <!-- Features (anchor link) — using main page with fragment -->
     <url>
-        <loc>https://huddle.com/#features</loc>
+        <loc>https://joinhuddleup.netlify.app/#features</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
@@ -31,7 +31,7 @@
 
     <!-- How It Works (anchor link) -->
     <url>
-        <loc>https://huddle.com/#how-it-works</loc>
+        <loc>https://joinhuddleup.netlify.app/#how-it-works</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
@@ -39,7 +39,7 @@
 
     <!-- Waitlist (anchor link) -->
     <url>
-        <loc>https://huddle.com/#waitlist</loc>
+        <loc>https://joinhuddleup.netlify.app/#waitlist</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
@@ -50,21 +50,21 @@
     ======================================== -->
 
     <url>
-        <loc>https://huddle.com/pages/privacy.html</loc>
+        <loc>https://joinhuddleup.netlify.app/pages/privacy.html</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://huddle.com/pages/terms.html</loc>
+        <loc>https://joinhuddleup.netlify.app/pages/terms.html</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://huddle.com/pages/cookies.html</loc>
+        <loc>https://joinhuddleup.netlify.app/pages/cookies.html</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.7</priority>
@@ -75,14 +75,14 @@
     ======================================== -->
 
     <url>
-        <loc>https://huddle.com/pages/help.html</loc>
+        <loc>https://joinhuddleup.netlify.app/pages/help.html</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://huddle.com/pages/faq.html</loc>
+        <loc>https://joinhuddleup.netlify.app/pages/faq.html</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>

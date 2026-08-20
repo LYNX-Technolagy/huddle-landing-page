@@ -1,0 +1,9 @@
+# Redirect /privacy to /pages/privacy.html
+/privacy /pages/privacy.html 200
+/terms /pages/terms.html 200
+/cookies /pages/cookies.html 200
+/help /pages/help.html 200
+/faq /pages/faq.html 200
+
+# 404 page
+/* /index.html 404

@@ -1,0 +1,327 @@
+/* ========================================
+   PAGES.CSS — Privacy & Terms Pages
+   ======================================== */
+
+/* ========================================
+   PAGE LAYOUT
+   ======================================== */
+.page-wrapper {
+    padding-top: 80px;
+    min-height: 100vh;
+    background: var(--white);
+}
+
+.page-container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+}
+
+/* ========================================
+   PAGE HEADER
+   ======================================== */
+.page-header {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 2px solid var(--gray-100);
+}
+
+.page-header .page-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--orange);
+    margin-bottom: 12px;
+}
+
+.page-header .page-label::before {
+    content: '';
+    width: 24px;
+    height: 2px;
+    background: var(--orange);
+}
+
+.page-header h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--black);
+}
+
+.page-header .page-meta {
+    margin-top: 12px;
+    font-size: 0.85rem;
+    color: var(--gray-500);
+}
+
+.page-header .page-meta .separator {
+    margin: 0 8px;
+    color: var(--gray-300);
+}
+
+.page-header .page-meta a {
+    color: var(--orange);
+    transition: color 0.2s ease;
+}
+
+.page-header .page-meta a:hover {
+    color: var(--orange-dark);
+}
+
+/* ========================================
+   PAGE CONTENT
+   ======================================== */
+.page-content {
+    color: var(--gray-700);
+}
+
+.page-content h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--black);
+    margin: 40px 0 16px;
+    letter-spacing: -0.01em;
+}
+
+.page-content h2:first-of-type {
+    margin-top: 0;
+}
+
+.page-content h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--black-soft);
+    margin: 28px 0 12px;
+}
+
+.page-content p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 16px;
+    color: var(--gray-700);
+}
+
+.page-content ul,
+.page-content ol {
+    margin: 12px 0 20px 24px;
+}
+
+.page-content ul li,
+.page-content ol li {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--gray-700);
+    margin-bottom: 8px;
+}
+
+.page-content ul li::marker {
+    color: var(--orange);
+}
+
+.page-content ul li ul {
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.page-content strong {
+    color: var(--black);
+    font-weight: 600;
+}
+
+.page-content a {
+    color: var(--orange);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s ease;
+}
+
+.page-content a:hover {
+    color: var(--orange-dark);
+}
+
+/* ========================================
+   HIGHLIGHT BOX
+   ======================================== */
+.page-content .highlight-box {
+    background: var(--gray-100);
+    border-left: 4px solid var(--orange);
+    padding: 20px 24px;
+    border-radius: 0 8px 8px 0;
+    margin: 24px 0;
+}
+
+.page-content .highlight-box p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+}
+
+.page-content .highlight-box strong {
+    color: var(--black);
+}
+
+/* ========================================
+   TABLE OF CONTENTS
+   ======================================== */
+.page-toc {
+    background: var(--gray-100);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 40px;
+}
+
+.page-toc .toc-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray-700);
+    margin-bottom: 12px;
+}
+
+.page-toc ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 24px;
+}
+
+.page-toc ul li {
+    margin: 0;
+    padding: 0;
+}
+
+.page-toc ul li a {
+    display: block;
+    padding: 4px 0;
+    font-size: 0.85rem;
+    color: var(--gray-700);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.page-toc ul li a:hover {
+    color: var(--orange);
+    border-bottom-color: var(--orange);
+}
+
+/* ========================================
+   LAST UPDATED BANNER
+   ======================================== */
+.page-updated {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--gray-100);
+    font-size: 0.8rem;
+    color: var(--gray-500);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-updated .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.page-updated .back-link:hover {
+    gap: 12px;
+    color: var(--orange-dark);
+}
+
+.page-updated .back-link i {
+    font-size: 0.8rem;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+    .page-container {
+        padding: 24px 16px 60px;
+    }
+
+    .page-header {
+        margin-bottom: 32px;
+        padding-bottom: 24px;
+    }
+
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .page-content h2 {
+        font-size: 1.2rem;
+        margin-top: 32px;
+    }
+
+    .page-content h3 {
+        font-size: 1rem;
+    }
+
+    .page-content p,
+    .page-content ul li,
+    .page-content ol li {
+        font-size: 0.9rem;
+    }
+
+    .page-toc {
+        padding: 16px 20px;
+    }
+
+    .page-toc ul {
+        grid-template-columns: 1fr;
+        gap: 2px;
+    }
+
+    .page-content .highlight-box {
+        padding: 16px 18px;
+    }
+
+    .page-updated {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-wrapper {
+        padding-top: 64px;
+    }
+
+    .page-container {
+        padding: 16px 12px 48px;
+    }
+
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .page-content ul,
+    .page-content ol {
+        margin-left: 16px;
+    }
+
+    .page-toc {
+        padding: 12px 16px;
+    }
+
+    .page-toc ul li a {
+        font-size: 0.8rem;
+        padding: 6px 0;
+    }
+}

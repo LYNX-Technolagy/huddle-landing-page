@@ -1,0 +1,629 @@
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ========================================
+    SEO & META TAGS
+    ======================================== -->
+
+    <title>Cookie Policy — Huddle</title>
+    <meta name="title" content="Cookie Policy — Huddle" />
+    <meta name="description" content="Learn how Huddle uses cookies to improve your experience. Manage your cookie preferences and understand our data practices." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://huddle.com/pages/cookies.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://huddle.com/pages/cookies.html" />
+    <meta property="og:title" content="Cookie Policy — Huddle" />
+    <meta property="og:description" content="Learn how Huddle uses cookies to improve your experience. Manage your cookie preferences." />
+    <meta property="og:image" content="https://huddle.com/assets/images/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cookie Policy — Huddle" />
+    <meta name="twitter:description" content="Learn how Huddle uses cookies to improve your experience." />
+    <meta name="twitter:image" content="https://huddle.com/assets/images/og-image.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/icons/favicon.ico" sizes="any" />
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+
+    <!-- ========================================
+    REST OF HEAD
+    ======================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/pages.css" />/>
+
+    <style>
+        nav {
+            display: block !important;
+        }
+
+        /* Cookie-specific styles */
+        .cookie-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin: 16px 0 24px;
+        }
+
+        .cookie-card {
+            background: var(--gray-100);
+            border-radius: 8px;
+            padding: 16px 20px;
+            border-left: 3px solid var(--orange);
+        }
+
+        .cookie-card .cookie-name {
+            font-weight: 700;
+            color: var(--black);
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .cookie-card .cookie-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 0.8rem;
+            color: var(--gray-700);
+        }
+
+        .cookie-card .cookie-details span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .cookie-card .cookie-details .tag {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .cookie-card .cookie-details .tag.essential {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .cookie-card .cookie-details .tag.functional {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .cookie-card .cookie-details .tag.analytics {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+
+        .cookie-card .cookie-details .tag.marketing {
+            background: #fce4ec;
+            color: #9a1f3c;
+        }
+
+        .cookie-preference {
+            background: var(--gray-100);
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin: 24px 0;
+        }
+
+        .cookie-preference .pref-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .cookie-preference .pref-item:last-child {
+            border-bottom: none;
+        }
+
+        .cookie-preference .pref-item .pref-label {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .cookie-preference .pref-item .pref-label .name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--black);
+        }
+
+        .cookie-preference .pref-item .pref-label .desc {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+        }
+
+        /* Toggle Switch */
+        .toggle {
+            position: relative;
+            width: 48px;
+            height: 28px;
+            flex-shrink: 0;
+        }
+
+        .toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle .slider {
+            position: absolute;
+            cursor: pointer;
+            inset: 0;
+            background: var(--gray-300);
+            border-radius: 28px;
+            transition: all 0.3s ease;
+        }
+
+        .toggle .slider::before {
+            content: '';
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            left: 4px;
+            bottom: 4px;
+            background: var(--white);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .toggle input:checked+.slider {
+            background: var(--orange);
+        }
+
+        .toggle input:checked+.slider::before {
+            transform: translateX(20px);
+        }
+
+        .toggle input:disabled+.slider {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-cookie-save {
+            margin-top: 16px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cookie-preference {
+                padding: 16px 18px;
+            }
+
+            .cookie-preference .pref-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .cookie-card .cookie-details {
+                flex-direction: column;
+                gap: 6px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========================================
+    NAVIGATION
+    ======================================== -->
+    <nav id="navbar">
+        <div class="nav-wrapper">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-basketball-ball"></i> HUDDLE
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html#features">Features</a></li>
+                <li><a href="../index.html#how-it-works">How It Works</a></li>
+                <li><a href="../index.html#waitlist">Waitlist</a></li>
+                <li><a href="../index.html#waitlist" class="btn btn-small">Join Now</a></li>
+            </ul>
+            <button class="mobile-menu" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-panel" id="mobilePanel">
+        <button class="close-btn" id="closeMenu"><i class="fas fa-times"></i></button>
+        <a href="../index.html#features">Features</a>
+        <a href="../index.html#how-it-works">How It Works</a>
+        <a href="../index.html#waitlist">Waitlist</a>
+        <a href="../index.html#waitlist" class="btn btn-small" style="margin-top:16px;width:100%;justify-content:center;">Join Now</a>
+    </div>
+
+    <!-- ========================================
+    COOKIE POLICY
+    ======================================== -->
+    <main class="page-wrapper">
+        <div class="page-container">
+
+            <!-- Header -->
+            <header class="page-header">
+                <div class="page-label">Cookie Policy</div>
+                <h1>How We Use Cookies</h1>
+                <div class="page-meta">
+                    <span>Last updated: August 19, 2026</span>
+                    <span class="separator">•</span>
+                    <span>Effective: August 26, 2026</span>
+                    <span class="separator">•</span>
+                    <a href="privacy.html">View Privacy Policy</a>
+                    <span class="separator">•</span>
+                    <a href="terms.html">View Terms of Service</a>
+                </div>
+            </header>
+
+            <!-- Table of Contents -->
+            <nav class="page-toc">
+                <div class="toc-title">Contents</div>
+                <ul>
+                    <li><a href="#what-are-cookies">1. What Are Cookies</a></li>
+                    <li><a href="#how-we-use">2. How We Use Cookies</a></li>
+                    <li><a href="#types">3. Types of Cookies We Use</a></li>
+                    <li><a href="#third-party">4. Third-Party Cookies</a></li>
+                    <li><a href="#manage">5. Manage Your Preferences</a></li>
+                    <li><a href="#changes-cookies">6. Changes to This Policy</a></li>
+                    <li><a href="#contact-cookies">7. Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <!-- Content -->
+            <div class="page-content">
+
+                <!-- 1. What Are Cookies -->
+                <h2 id="what-are-cookies">1. What Are Cookies</h2>
+                <p>
+                    Cookies are small text files that are placed on your device when you visit a website. They are widely used to make websites work more efficiently, enhance user experience, and provide information to website owners.
+                </p>
+                <p>
+                    Cookies can be <strong>session cookies</strong> (deleted when you close your browser) or <strong>persistent cookies</strong> (remain on your device until they expire or are deleted).
+                </p>
+
+                <div class="highlight-box">
+                    <p><strong>In short:</strong> Cookies help us remember you, improve your experience, and understand how people use Huddle. We only use cookies that make sense for our platform.</p>
+                </div>
+
+                <!-- 2. How We Use Cookies -->
+                <h2 id="how-we-use">2. How We Use Cookies</h2>
+                <p>
+                    We use cookies for the following purposes:
+                </p>
+                <ul>
+                    <li><strong>Essential:</strong> To make Huddle work properly (login, security, navigation).</li>
+                    <li><strong>Functional:</strong> To remember your preferences and settings.</li>
+                    <li><strong>Analytics:</strong> To understand how you use Huddle and improve our platform.</li>
+                    <li><strong>Marketing:</strong> To deliver relevant ads and measure campaign effectiveness.</li>
+                </ul>
+
+                <!-- 3. Types of Cookies We Use -->
+                <h2 id="types">3. Types of Cookies We Use</h2>
+
+                <div class="cookie-grid">
+
+                    <!-- Essential -->
+                    <div class="cookie-card">
+                        <div class="cookie-name">Essential Cookies</div>
+                        <p style="font-size:0.85rem;color:var(--gray-700);margin-bottom:6px;">
+                            Required for Huddle to function. Cannot be disabled.
+                        </p>
+                        <div class="cookie-details">
+                            <span>📌 <strong>Examples:</strong> session_id, auth_token</span>
+                            <span><span class="tag essential">Essential</span></span>
+                            <span>⏱ Session</span>
+                        </div>
+                    </div>
+
+                    <!-- Functional -->
+                    <div class="cookie-card">
+                        <div class="cookie-name">Functional Cookies</div>
+                        <p style="font-size:0.85rem;color:var(--gray-700);margin-bottom:6px;">
+                            Remember your preferences and settings.
+                        </p>
+                        <div class="cookie-details">
+                            <span>📌 <strong>Examples:</strong> preferred_sport, location, theme</span>
+                            <span><span class="tag functional">Functional</span></span>
+                            <span>⏱ 1 year</span>
+                        </div>
+                    </div>
+
+                    <!-- Analytics -->
+                    <div class="cookie-card">
+                        <div class="cookie-name">Analytics Cookies</div>
+                        <p style="font-size:0.85rem;color:var(--gray-700);margin-bottom:6px;">
+                            Help us understand how you interact with Huddle.
+                        </p>
+                        <div class="cookie-details">
+                            <span>📌 <strong>Examples:</strong> _ga, _gid (Google Analytics)</span>
+                            <span><span class="tag analytics">Analytics</span></span>
+                            <span>⏱ 2 years</span>
+                        </div>
+                    </div>
+
+                    <!-- Marketing -->
+                    <div class="cookie-card">
+                        <div class="cookie-name">Marketing Cookies</div>
+                        <p style="font-size:0.85rem;color:var(--gray-700);margin-bottom:6px;">
+                            Deliver relevant ads and track campaign performance.
+                        </p>
+                        <div class="cookie-details">
+                            <span>📌 <strong>Examples:</strong> _fbp, _gcl_au</span>
+                            <span><span class="tag marketing">Marketing</span></span>
+                            <span>⏱ 90 days</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 4. Third-Party Cookies -->
+                <h2 id="third-party">4. Third-Party Cookies</h2>
+                <p>
+                    We use third-party services that may place their own cookies on your device:
+                </p>
+                <ul>
+                    <li><strong>Google Analytics:</strong> Helps us understand traffic and user behavior.</li>
+                    <li><strong>Google Ads / Facebook Pixel:</strong> For marketing and retargeting.</li>
+                    <li><strong>Payment Processors:</strong> For secure payment processing.</li>
+                </ul>
+                <p>
+                    These third parties have their own privacy policies. We encourage you to review them.
+                </p>
+
+                <!-- 5. Manage Your Preferences -->
+                <h2 id="manage">5. Manage Your Preferences</h2>
+                <p>
+                    You can control how cookies are used on Huddle:
+                </p>
+
+                <div class="cookie-preference">
+                    <div class="pref-item">
+                        <div class="pref-label">
+                            <span class="name">Essential Cookies</span>
+                            <span class="desc">Required for Huddle to function properly</span>
+                        </div>
+                        <div class="toggle">
+                            <input type="checkbox" checked disabled />
+                            <span class="slider"></span>
+                        </div>
+                    </div>
+
+                    <div class="pref-item">
+                        <div class="pref-label">
+                            <span class="name">Functional Cookies</span>
+                            <span class="desc">Remember your preferences and settings</span>
+                        </div>
+                        <div class="toggle">
+                            <input type="checkbox" id="functionalCookies" checked />
+                            <label for="functionalCookies" class="slider"></label>
+                        </div>
+                    </div>
+
+                    <div class="pref-item">
+                        <div class="pref-label">
+                            <span class="name">Analytics Cookies</span>
+                            <span class="desc">Help us improve Huddle by understanding usage</span>
+                        </div>
+                        <div class="toggle">
+                            <input type="checkbox" id="analyticsCookies" checked />
+                            <label for="analyticsCookies" class="slider"></label>
+                        </div>
+                    </div>
+
+                    <div class="pref-item">
+                        <div class="pref-label">
+                            <span class="name">Marketing Cookies</span>
+                            <span class="desc">Deliver relevant ads and promotions</span>
+                        </div>
+                        <div class="toggle">
+                            <input type="checkbox" id="marketingCookies" checked />
+                            <label for="marketingCookies" class="slider"></label>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-cookie-save" id="saveCookiePrefs">
+                        <i class="fas fa-save"></i> Save Preferences
+                    </button>
+                </div>
+
+                <p>
+                    You can also manage cookies through your browser settings:
+                </p>
+                <ul>
+                    <li><strong>Chrome:</strong> Settings → Privacy and Security → Cookies</li>
+                    <li><strong>Firefox:</strong> Options → Privacy & Security → Cookies</li>
+                    <li><strong>Safari:</strong> Preferences → Privacy → Cookies</li>
+                    <li><strong>Edge:</strong> Settings → Privacy → Cookies</li>
+                </ul>
+                <p>
+                    Please note that disabling cookies may affect some features of Huddle.
+                </p>
+
+                <!-- 6. Changes -->
+                <h2 id="changes-cookies">6. Changes to This Policy</h2>
+                <p>
+                    We may update this Cookie Policy from time to time. We will notify you of significant changes through:
+                </p>
+                <ul>
+                    <li>Email notification.</li>
+                    <li>A notice on our website.</li>
+                    <li>Updating the "Last updated" date above.</li>
+                </ul>
+                <p>
+                    We encourage you to review this policy periodically.
+                </p>
+
+                <!-- 7. Contact -->
+                <h2 id="contact-cookies">7. Contact Us</h2>
+                <p>
+                    If you have questions about this Cookie Policy, please contact us:
+                </p>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:luvoxokiyana@gmail.com">luvoxokiyana@gmail.com</a></li>
+                    <li><strong>Address:</strong> Huddle, Cape Town, South Africa</li>
+                </ul>
+
+            </div>
+
+            <!-- Updated & Back Link -->
+            <div class="page-updated">
+                <span>Last updated: August 19, 2026</span>
+                <a href="../index.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ========================================
+    FOOTER
+    ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo">
+                        <i class="fas fa-basketball-ball"></i> HUDDLE
+                    </a>
+                    <p>Find your local game and connect with your community. From pickup to tournaments — we bring players together.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div>
+                        <h4>Platform</h4>
+                        <a href="../index.html#features">Find Games</a>
+                        <a href="../index.html#features">Create Events</a>
+                        <a href="#">Tournaments</a>
+                        <a href="#">Leagues</a>
+                    </div>
+                    <div>
+                        <h4>Community</h4>
+                        <a href="#">About Us</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Contact</a>
+                    </div>
+                    <div>
+                        <h4>Support</h4>
+                        <a href="#">Help Center</a>
+                        <a href="#">FAQ</a>
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="cookies.html">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2026 Huddle. All rights reserved.</span>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="cookies.html">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================
+    SCRIPTS
+    ======================================== -->
+    <script>
+        // Navbar scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile menu
+        const toggle = document.getElementById('menuToggle');
+        const closeBtn = document.getElementById('closeMenu');
+        const panel = document.getElementById('mobilePanel');
+        const overlay = document.getElementById('mobileOverlay');
+
+        function openMenu() {
+            panel.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            panel.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        toggle.addEventListener('click', openMenu);
+        closeBtn.addEventListener('click', closeMenu);
+        overlay.addEventListener('click', closeMenu);
+        document.querySelectorAll('.mobile-panel a').forEach(a => a.addEventListener('click', closeMenu));
+
+        // Cookie preferences
+        document.getElementById('saveCookiePrefs').addEventListener('click', function() {
+            const prefs = {
+                functional: document.getElementById('functionalCookies').checked,
+                analytics: document.getElementById('analyticsCookies').checked,
+                marketing: document.getElementById('marketingCookies').checked
+            };
+
+            // Save to localStorage
+            localStorage.setItem('cookiePreferences', JSON.stringify(prefs));
+
+            // Show confirmation
+            const originalText = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-check"></i> Preferences Saved';
+            this.style.background = '#34d399';
+            this.style.color = '#fff';
+
+            setTimeout(() => {
+                this.innerHTML = originalText;
+                this.style.background = '';
+                this.style.color = '';
+            }, 2500);
+        });
+
+        // Load saved preferences
+        const savedPrefs = localStorage.getItem('cookiePreferences');
+        if (savedPrefs) {
+            try {
+                const prefs = JSON.parse(savedPrefs);
+                document.getElementById('functionalCookies').checked = prefs.functional;
+                document.getElementById('analyticsCookies').checked = prefs.analytics;
+                document.getElementById('marketingCookies').checked = prefs.marketing;
+            } catch (e) {
+                // Ignore
+            }
+        }
+    </script>
+
+</body>
+
+</html>

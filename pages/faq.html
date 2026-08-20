@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ — Huddle</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/pages.css" />
+
+    <style>
+        nav {
+            display: block !important;
+        }
+
+        /* ========================================
+           FAQ SPECIFIC STYLES
+           ======================================== */
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .faq-header h1 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 800;
+        }
+
+        .faq-header p {
+            color: var(--gray-700);
+            font-size: 1.05rem;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        /* Category Navigation */
+        .faq-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .faq-nav a {
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray-700);
+            background: var(--gray-100);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .faq-nav a:hover,
+        .faq-nav a.active {
+            background: var(--orange);
+            color: var(--white);
+        }
+
+        /* FAQ Accordion */
+        .faq-section {
+            margin-bottom: 48px;
+        }
+
+        .faq-section .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--gray-100);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-section .section-title i {
+            color: var(--orange);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            gap: 16px;
+        }
+
+        .faq-question:hover {
+            color: var(--orange);
+        }
+
+        .faq-question .q-text {
+            font-weight: 600;
+            font-size: 0.95rem;
+            flex: 1;
+        }
+
+        .faq-question .q-icon {
+            flex-shrink: 0;
+            color: var(--gray-500);
+            transition: transform 0.3s ease;
+            font-size: 0.8rem;
+        }
+
+        .faq-item.open .faq-question .q-icon {
+            transform: rotate(180deg);
+            color: var(--orange);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+            padding: 0;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 500px;
+            padding: 0 0 20px 0;
+        }
+
+        .faq-answer p,
+        .faq-answer ul {
+            font-size: 0.9rem;
+            color: var(--gray-700);
+            line-height: 1.8;
+        }
+
+        .faq-answer ul {
+            margin: 8px 0 0 20px;
+        }
+
+        .faq-answer ul li {
+            margin-bottom: 4px;
+        }
+
+        .faq-answer a {
+            color: var(--orange);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .faq-answer a:hover {
+            color: var(--orange-dark);
+        }
+
+        /* No Results */
+        .faq-no-results {
+            display: none;
+            text-align: center;
+            padding: 40px 0;
+            color: var(--gray-500);
+        }
+
+        .faq-no-results i {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            opacity: 0.3;
+        }
+
+        .faq-no-results p {
+            font-size: 1rem;
+        }
+
+        /* Back to Help */
+        .faq-back {
+            margin-top: 24px;
+            text-align: center;
+        }
+
+        .faq-back a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray-700);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .faq-back a:hover {
+            color: var(--orange);
+            gap: 12px;
+        }
+
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
+        @media (max-width: 768px) {
+            .faq-nav {
+                gap: 6px;
+            }
+
+            .faq-nav a {
+                padding: 6px 14px;
+                font-size: 0.7rem;
+            }
+
+            .faq-question .q-text {
+                font-size: 0.9rem;
+            }
+
+            .faq-answer p,
+            .faq-answer ul {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .faq-nav a {
+                font-size: 0.6rem;
+                padding: 4px 12px;
+            }
+
+            .faq-question {
+                padding: 12px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========================================
+    NAVIGATION
+    ======================================== -->
+    <nav id="navbar">
+        <div class="nav-wrapper">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-basketball-ball"></i> HUDDLE
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html#features">Features</a></li>
+                <li><a href="../index.html#how-it-works">How It Works</a></li>
+                <li><a href="../index.html#waitlist">Waitlist</a></li>
+                <li><a href="../index.html#waitlist" class="btn btn-small">Join Now</a></li>
+            </ul>
+            <button class="mobile-menu" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-panel" id="mobilePanel">
+        <button class="close-btn" id="closeMenu"><i class="fas fa-times"></i></button>
+        <a href="../index.html#features">Features</a>
+        <a href="../index.html#how-it-works">How It Works</a>
+        <a href="../index.html#waitlist">Waitlist</a>
+        <a href="../index.html#waitlist" class="btn btn-small" style="margin-top:16px;width:100%;justify-content:center;">Join Now</a>
+    </div>
+
+    <!-- ========================================
+    FAQ
+    ======================================== -->
+    <main class="page-wrapper">
+        <div class="page-container">
+
+            <!-- Header -->
+            <div class="faq-header">
+                <h1>Frequently Asked Questions</h1>
+                <p>Find answers to the most common questions about Huddle.</p>
+            </div>
+
+            <!-- Category Navigation -->
+            <nav class="faq-nav" id="faqNav">
+                <a href="#getting-started" class="active">All</a>
+                <a href="#getting-started">Getting Started</a>
+                <a href="#account">Account</a>
+                <a href="#games">Games</a>
+                <a href="#payments">Payments</a>
+                <a href="#community">Community</a>
+                <a href="#technical">Technical</a>
+            </nav>
+
+            <!-- No Results -->
+            <div class="faq-no-results" id="noResults">
+                <i class="fas fa-search"></i>
+                <p>No results found for "<span id="searchQuery"></span>"</p>
+            </div>
+
+            <!-- ========================================
+            FAQ SECTIONS
+            ======================================== -->
+
+            <!-- Getting Started -->
+            <div class="faq-section" id="getting-started">
+                <div class="section-title">
+                    <i class="fas fa-rocket"></i> Getting Started
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span class="q-text">What is Huddle?</span>
+                        <span class="q-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Huddle is a platform that helps you find pickup games, tournaments, and leagues in your area. Whether you're a casual player or a competitive athlete, Huddle connects you with local games and players who share your passion for sports.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item" id="how-to-find-game">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span class="q-text">How do I find a game near me?</span>
+                        <span class="q-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            To find a game near you:
+                        </p>
+                        <ul>
+                            <li>Create an account and set your location.</li>
+                            <li>Browse the "Find Games" section.</li>
+                            <li>Filter by sport, skill level, and distance.</li>
+                            <li>Click "Join" on any game that interests you.</li>
+                        </ul>
+                        <p>
+                            You can also set up notifications to get alerts when new games are posted in your area.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item" id="how-to-create-event">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span class="q-text">How do I create my own event?</span>
+                        <span class="q-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            To create an event:
+                        </p>
+                        <ul>
+                            <li>Log in to your account.</li>
+                            <li>Click "Create Event" in the navigation.</li>
+                            <li>Fill in the details (sport, date, time, location, skill level).</li>
+                            <li>Set the number of players needed.</li>
+                            <li>Publish your event and invite your community.</li>
+                        </ul>
+                        <p>
+                            You can manage your events from your dashboard and track who has joined.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span class="q-text">Is Huddle free to use?</span>
+                        <span class="q-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Huddle offers a <strong>free</strong> basic plan that lets you find and join games in your area. We also offer premium features, such as advanced filters, priority listing for your events, and detailed stats tracking. Check our <a href="../index.html#waitlist">Pricing</a> section for more details.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account -->
+            <div class="faq-section" id="account">
+                <div class="section-title">
+                    <i class="fas fa-user-cog"></i> Account & Profile
+                </div>
+
+                <div class="faq-item" id="account-verification">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span class="q-text">How do I verify my account?</span>
+                        <span class="q-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            To verify your account:
+                        </p>
+                        <ul>
+                            <li>Go to your account settings.</li>
+                            <li>Click "Verify Account".</li>
+                            <li>You'll receive a verification email.</li>
+                            <li>Click the link in the email to verify.</li>
+                        </ul>
+                        <p>
+                            Verified accounts get a badge and are trusted by the community.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item" id="delete-account">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span class="q-text">How do I delete my account?</span>
+                        <span class="q-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            To delete your account:
+                        </p>
+                        <ul>
+                            <li>Go to your account settings.</li>
+                            <li>Scroll to the bottom and click "Delete Account".</li>
+                            <li>Confirm your decision.</li>
+                        </ul>
+                        <p>
+                            <strong>Note:</strong> This action is permanent and cannot be undone. All your data will be removed from our system.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span class="q-text">How do I change my profile picture?</span>
+                        <span class="q-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            To change your profile picture:
+                        </p>
+                        <ul>
+                            <li>Go to your profile page.</li>
+                            <li>Click on your current profile picture.</li>
+                            <li>Upload a new image from your device.</li>
+                            <li>Crop and save your new picture.</li>
+                        </ul>
+                        <p>
+                            Supported formats: JPG, PNG, GIF. Maximum size: 5MB.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Games -->
+            <div class="faq-section" id="games">
+                <div class="section-title">
+                    <i class="fas fa-basketball-ball"></i> Games & Events
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span class="q-text">What sports are available on Huddle?</span>
+                        <span class="q-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Huddle currently supports the following sports:
+                        </p>
+                        <ul>
+                            <li>🏀 Basketball</li>
+                            <li>⚽ Soccer</li>
+                            <li>🏐 Volleyball</li>
+                            <li>🎾 Tennis</li>
+                            <li>🏈 Football</li>
+                            <li>🏸 Badminton</li>
+                            <li>🏓 Table Tennis</li>
+                            <li>🎱 Pool/Billiards</li>
+                            <li>...and more being added regularly!</li>
+                        </ul>
+                        <p>
+                            If your sport isn't listed, you can request it by contacting our support team.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span class="q-text">Can I join a game that's already full?</span>
+                        <span class="q-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            If a game is full, you can:
+                        </p>
+                        <ul>
+                            <li>Join the waitlist to be notified if a spot opens up.</li>
+                            <li>Contact the event organizer directly to ask if they can accommodate one more.</li>
+                            <li>Create a similar game at the same time and invite others.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span class="q-text">What happens if I can't make it to a game?</span>
+                        <span class="q-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            If you can't make it to a game:
+                        </p>
+                        <ul>
+                            <li>Cancel your spot as early as possible.</li>
+                            <li>Go to your "My Games" section and click "Cancel".</li>
+                            <li>This frees up your spot for another player.</li>
+                            <li>Frequent no-shows may affect your standing in the community.</li>
+                        </ul>
+                        <p>
+                            We encourage all players to be respectful of others' time and commitment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payments -->
+            <div class="faq-section" id="payments">
+                <div class="section-title">
+                    <i class="fas fa-credit-card"></i> Payments & Billing
+                </div>
+
+                <div class="faq-item" id="payment-methods">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span class="q-text">What payment methods do you accept?</span>
+                        <span class="q-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            We accept the following payment methods:
+                        </p>
+                        <ul>
+                            <li>💳 Credit/Debit Cards (Visa, Mastercard, Amex)</li>
+                            <li>🇿🇦 South African Debit Cards</li>
+                            <li>📱 Mobile Payments (SnapScan, Zapper)</li>
+                            <li>🏦 Bank Transfers (EFT)</li>
+                        </ul>
+                        <p>
+                            All payments are processed securely through our payment partners.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span class="q-text">How do I get a refund?</span>
+                        <span class="q-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Refund requests are handled on a case-by-case basis. To request a refund:
+                        </p>
+                        <ul>
+                            <li>Contact our support team at <a href="mailto:support@huddle.com">support@huddle.com</a>.</li>
+                            <li>Include your order number and reason for the refund.</li>
+                            <li>We'll review your request and get back to you within 48 hours.</li>
+                        </ul>
+                        <p>
+                            Please refer to our <a href="terms.html">Terms of Service</a> for our full refund policy.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span class="q-text">Are my payment details secure?</span>
+                        <span class="q-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Yes! We take security seriously:
+                        </p>
+                        <ul>
+                            <li>All transactions are encrypted using SSL/TLS.</li>
+                            <li>We don't store your full payment details on our servers.</li>
+                            <li>All payments are processed by PCI-compliant partners.</li>
+                            <li>We use tokenization to protect your sensitive information.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Community -->
+            <div class="faq-section" id="community">
+                <div class="section-title">
+                    <i class="fas fa-users"></i> Community & Safety
+                </div>
+
+                <div class="faq-item" id="report-user">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span class="q-text">How do I report a user or issue?</span>
+                        <span class="q-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            To report a user or issue:
+                        </p>
+                        <ul>
+                            <li>Go to the user's profile or the event page.</li>
+                            <li>Click the "Report" button (flag icon).</li>
+                            <li>Select the reason for your report.</li>
+                            <li>Provide any additional details.</li>
+                            <li>Submit your report.</li>
+                        </ul>
+                        <p>
+                            Our moderation team will review all reports and take appropriate action.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span class="q-text">What are the community guidelines?</span>
+                        <span class="q-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Our community guidelines are simple:
+                        </p>
+                        <ul>
+                            <li><strong>Be Respectful:</strong> Treat others with kindness and respect.</li>
+                            <li><strong>Play Fair:</strong> Follow the rules of the game and sportsmanship.</li>
+                            <li><strong>No Harassment:</strong> Bullying, hate speech, and discrimination are not tolerated.</li>
+                            <li><strong>Stay Safe:</strong> Protect your personal information and report suspicious behavior.</li>
+                            <li><strong>Have Fun:</strong> Remember, it's all about enjoying the game!</li>
+                        </ul>
+                        <p>
+                            Violation of these guidelines may result in account suspension or termination.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical -->
+            <div class="faq-section" id="technical">
+                <div class="section-title">
+                    <i class="fas fa-laptop-code"></i> Technical Support
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span class="q-text">The app is not loading. What should I do?</span>
+                        <span class="q-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            If Huddle isn't loading properly, try these steps:
+                        </p>
+                        <ul>
+                            <li>Check your internet connection.</li>
+                            <li>Refresh the page or restart the app.</li>
+                            <li>Clear your browser cache and cookies.</li>
+                            <li>Try using a different browser or device.</li>
+                            <li>Check our status page for any ongoing issues.</li>
+                        </ul>
+                        <p>
+                            If the problem persists, <a href="help.html">contact our support team</a>.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span class="q-text">How do I submit feedback or a bug report?</span>
+                        <span class="q-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            We'd love to hear your feedback! To submit a bug report or feature suggestion:
+                        </p>
+                        <ul>
+                            <li>Go to the "Help" section in your account.</li>
+                            <li>Click "Submit Feedback".</li>
+                            <li>Describe the issue or suggestion in detail.</li>
+                            <li>Include screenshots if possible.</li>
+                            <li>Submit and we'll get back to you.</li>
+                        </ul>
+                        <p>
+                            You can also email us directly at <a href="mailto:support@huddle.com">support@huddle.com</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back to Help -->
+            <div class="faq-back">
+                <a href="help.html">
+                    <i class="fas fa-arrow-left"></i> Back to Help Center
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ========================================
+    FOOTER
+    ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo">
+                        <i class="fas fa-basketball-ball"></i> HUDDLE
+                    </a>
+                    <p>Find your local game and connect with your community. From pickup to tournaments — we bring players together.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div>
+                        <h4>Platform</h4>
+                        <a href="../index.html#features">Find Games</a>
+                        <a href="../index.html#features">Create Events</a>
+                        <a href="#">Tournaments</a>
+                        <a href="#">Leagues</a>
+                    </div>
+                    <div>
+                        <h4>Community</h4>
+                        <a href="#">About Us</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Contact</a>
+                    </div>
+                    <div>
+                        <h4>Support</h4>
+                        <a href="help.html">Help Center</a>
+                        <a href="faq.html">FAQ</a>
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="cookies.html">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2026 Huddle. All rights reserved.</span>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="cookies.html">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================
+    SCRIPTS
+    ======================================== -->
+    <script>
+        // Navbar scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile menu
+        const toggle = document.getElementById('menuToggle');
+        const closeBtn = document.getElementById('closeMenu');
+        const panel = document.getElementById('mobilePanel');
+        const overlay = document.getElementById('mobileOverlay');
+
+        function openMenu() {
+            panel.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            panel.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        toggle.addEventListener('click', openMenu);
+        closeBtn.addEventListener('click', closeMenu);
+        overlay.addEventListener('click', closeMenu);
+        document.querySelectorAll('.mobile-panel a').forEach(a => a.addEventListener('click', closeMenu));
+
+        // ========================================
+        // FAQ ACCORDION
+        // ========================================
+        function toggleFaq(element) {
+            const item = element.closest('.faq-item');
+            const isOpen = item.classList.contains('open');
+
+            // Close all other items in the same section
+            const section = item.closest('.faq-section');
+            section.querySelectorAll('.faq-item.open').forEach(openItem => {
+                if (openItem !== item) {
+                    openItem.classList.remove('open');
+                }
+            });
+
+            // Toggle this item
+            if (isOpen) {
+                item.classList.remove('open');
+            } else {
+                item.classList.add('open');
+            }
+        }
+
+        // ========================================
+        // SCROLL TO SECTION FROM URL HASH
+        // ========================================
+        function scrollToFaqSection() {
+            const hash = window.location.hash;
+            if (hash) {
+                const target = document.querySelector(hash);
+                if (target) {
+                    // Open the first FAQ item in the section
+                    const firstItem = target.querySelector('.faq-item');
+                    if (firstItem) {
+                        firstItem.classList.add('open');
+                    }
+
+                    // Scroll to the section
+                    setTimeout(() => {
+                        const offset = 100;
+                        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                        window.scrollTo({ top, behavior: 'smooth' });
+                    }, 300);
+                }
+            }
+        }
+
+        // ========================================
+        // SEARCH FUNCTIONALITY
+        // ========================================
+        function searchFAQ(query) {
+            const items = document.querySelectorAll('.faq-item');
+            const noResults = document.getElementById('noResults');
+            const searchQuery = document.getElementById('searchQuery');
+            let found = false;
+
+            items.forEach(item => {
+                const question = item.querySelector('.q-text')?.textContent?.toLowerCase() || '';
+                const answer = item.querySelector('.faq-answer')?.textContent?.toLowerCase() || '';
+
+                if (question.includes(query) || answer.includes(query)) {
+                    item.style.display = '';
+                    found = true;
+                    // Auto-open matching items
+                    item.classList.add('open');
+                } else {
+                    item.style.display = 'none';
+                    item.classList.remove('open');
+                }
+            });
+
+            // Show no results message
+            if (query && !found) {
+                noResults.style.display = 'block';
+                searchQuery.textContent = query;
+            } else {
+                noResults.style.display = 'none';
+            }
+
+            // Update nav active state
+            document.querySelectorAll('.faq-nav a').forEach(a => a.classList.remove('active'));
+            document.querySelector('.faq-nav a:first-child').classList.add('active');
+        }
+
+        // ========================================
+        // CATEGORY FILTER
+        // ========================================
+        document.querySelectorAll('.faq-nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                // Update active nav
+                document.querySelectorAll('.faq-nav a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+
+                const target = this.getAttribute('href');
+
+                if (target === '#getting-started' || target === '#account' ||
+                    target === '#games' || target === '#payments' ||
+                    target === '#community' || target === '#technical') {
+
+                    // Show only the target section
+                    document.querySelectorAll('.faq-section').forEach(section => {
+                        if (section.id === target.replace('#', '')) {
+                            section.style.display = '';
+                        } else {
+                            section.style.display = 'none';
+                        }
+                    });
+
+                    // Close all items
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('open');
+                    });
+
+                    // Scroll to section
+                    const section = document.querySelector(target);
+                    if (section) {
+                        setTimeout(() => {
+                            const offset = 100;
+                            const top = section.getBoundingClientRect().top + window.pageYOffset - offset;
+                            window.scrollTo({ top, behavior: 'smooth' });
+                        }, 100);
+                    }
+
+                    document.getElementById('noResults').style.display = 'none';
+
+                } else {
+                    // Show all sections
+                    document.querySelectorAll('.faq-section').forEach(section => {
+                        section.style.display = '';
+                    });
+
+                    // Close all items
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('open');
+                    });
+
+                    document.getElementById('noResults').style.display = 'none';
+                }
+            });
+        });
+
+        // ========================================
+        // HANDLE SEARCH FROM HELP PAGE
+        // ========================================
+        window.addEventListener('load', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchQuery = urlParams.get('search');
+
+            if (searchQuery) {
+                // Show all sections first
+                document.querySelectorAll('.faq-section').forEach(section => {
+                    section.style.display = '';
+                });
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('open');
+                });
+                // Perform search
+                searchFAQ(searchQuery.toLowerCase());
+            }
+
+            // Handle hash scroll
+            scrollToFaqSection();
+        });
+    </script>
+
+</body>
+
+</html>

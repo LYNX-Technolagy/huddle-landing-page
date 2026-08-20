@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Help Center — Huddle</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/pages.css" />
+
+    <style>
+        nav {
+            display: block !important;
+        }
+
+        /* ========================================
+           HELP CENTER SPECIFIC STYLES
+           ======================================== */
+
+        /* Hero / Search */
+        .help-hero {
+            text-align: center;
+            padding: 40px 0 48px;
+            background: var(--gray-100);
+            border-radius: 16px;
+            margin-bottom: 48px;
+        }
+
+        .help-hero h1 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .help-hero p {
+            color: var(--gray-700);
+            font-size: 1.05rem;
+            max-width: 480px;
+            margin: 0 auto 24px;
+        }
+
+        .help-search {
+            display: flex;
+            max-width: 520px;
+            margin: 0 auto;
+            gap: 0;
+            background: var(--white);
+            border-radius: 50px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .help-search input {
+            flex: 1;
+            padding: 14px 20px;
+            border: none;
+            outline: none;
+            font-family: var(--font);
+            font-size: 0.95rem;
+            color: var(--black);
+            background: transparent;
+        }
+
+        .help-search input::placeholder {
+            color: var(--gray-500);
+        }
+
+        .help-search button {
+            padding: 14px 24px;
+            background: var(--black);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            font-family: var(--font);
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .help-search button:hover {
+            background: var(--orange);
+        }
+
+        /* Help Categories */
+        .help-categories {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 48px;
+        }
+
+        .help-category {
+            background: var(--white);
+            border: 1px solid var(--gray-100);
+            border-radius: 12px;
+            padding: 24px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .help-category:hover {
+            border-color: var(--orange);
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+        }
+
+        .help-category .icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--gray-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 1.2rem;
+            color: var(--orange);
+            transition: all 0.3s ease;
+        }
+
+        .help-category:hover .icon {
+            background: var(--orange);
+            color: var(--white);
+        }
+
+        .help-category h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .help-category p {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+        }
+
+        /* Popular Articles */
+        .help-popular {
+            margin-bottom: 48px;
+        }
+
+        .help-popular .section-label {
+            text-align: center;
+        }
+
+        .help-popular-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .help-article {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 18px;
+            background: var(--gray-100);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--black);
+        }
+
+        .help-article:hover {
+            background: var(--orange);
+            color: var(--white);
+        }
+
+        .help-article i {
+            color: var(--orange);
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .help-article:hover i {
+            color: var(--white);
+        }
+
+        .help-article span {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .help-contact {
+            background: var(--black);
+            color: var(--white);
+            border-radius: 16px;
+            padding: 40px 48px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .help-contact h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+        }
+
+        .help-contact p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+            margin-top: 4px;
+        }
+
+        .help-contact .contact-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .help-contact .contact-buttons .btn-outline-light {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .help-contact .contact-buttons .btn-outline-light:hover {
+            background: var(--orange);
+            border-color: var(--orange);
+            color: var(--white);
+        }
+
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
+        @media (max-width: 968px) {
+            .help-categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .help-contact {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 32px 24px;
+            }
+
+            .help-contact .contact-buttons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .help-hero {
+                padding: 24px 16px 32px;
+            }
+
+            .help-search {
+                flex-direction: column;
+                border-radius: 12px;
+                box-shadow: var(--shadow);
+            }
+
+            .help-search input {
+                padding: 16px 20px;
+                border-bottom: 1px solid var(--gray-100);
+            }
+
+            .help-search button {
+                justify-content: center;
+                padding: 14px;
+                border-radius: 0 0 12px 12px;
+            }
+
+            .help-categories {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .help-category {
+                padding: 16px 12px;
+            }
+
+            .help-popular-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .help-contact {
+                padding: 24px 16px;
+            }
+
+            .help-contact h2 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .help-categories {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========================================
+    NAVIGATION
+    ======================================== -->
+    <nav id="navbar">
+        <div class="nav-wrapper">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-basketball-ball"></i> HUDDLE
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html#features">Features</a></li>
+                <li><a href="../index.html#how-it-works">How It Works</a></li>
+                <li><a href="../index.html#waitlist">Waitlist</a></li>
+                <li><a href="../index.html#waitlist" class="btn btn-small">Join Now</a></li>
+            </ul>
+            <button class="mobile-menu" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-panel" id="mobilePanel">
+        <button class="close-btn" id="closeMenu"><i class="fas fa-times"></i></button>
+        <a href="../index.html#features">Features</a>
+        <a href="../index.html#how-it-works">How It Works</a>
+        <a href="../index.html#waitlist">Waitlist</a>
+        <a href="../index.html#waitlist" class="btn btn-small" style="margin-top:16px;width:100%;justify-content:center;">Join Now</a>
+    </div>
+
+    <!-- ========================================
+    HELP CENTER
+    ======================================== -->
+    <main class="page-wrapper">
+        <div class="page-container">
+
+            <!-- Help Hero -->
+            <div class="help-hero">
+                <h1>How can we help?</h1>
+                <p>Find answers to common questions or get in touch with our support team.</p>
+
+                <div class="help-search">
+                    <input type="text" id="helpSearch" placeholder="Search for help..." />
+                    <button onclick="searchHelp()">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+            </div>
+
+            <!-- Categories -->
+            <div class="help-categories">
+                <div class="help-category" onclick="scrollToFaq('getting-started')">
+                    <div class="icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Getting Started</h3>
+                    <p>Create your account and find your first game</p>
+                </div>
+
+                <div class="help-category" onclick="scrollToFaq('account')">
+                    <div class="icon"><i class="fas fa-user-cog"></i></div>
+                    <h3>Account & Profile</h3>
+                    <p>Manage your settings and preferences</p>
+                </div>
+
+                <div class="help-category" onclick="scrollToFaq('games')">
+                    <div class="icon"><i class="fas fa-basketball-ball"></i></div>
+                    <h3>Games & Events</h3>
+                    <p>Find, create, and join games</p>
+                </div>
+
+                <div class="help-category" onclick="scrollToFaq('payments')">
+                    <div class="icon"><i class="fas fa-credit-card"></i></div>
+                    <h3>Payments & Billing</h3>
+                    <p>Subscriptions, fees, and refunds</p>
+                </div>
+
+                <div class="help-category" onclick="scrollToFaq('community')">
+                    <div class="icon"><i class="fas fa-users"></i></div>
+                    <h3>Community & Safety</h3>
+                    <p>Guidelines, reporting, and support</p>
+                </div>
+
+                <div class="help-category" onclick="scrollToFaq('technical')">
+                    <div class="icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Technical Support</h3>
+                    <p>Bugs, troubleshooting, and feedback</p>
+                </div>
+            </div>
+
+            <!-- Popular Articles -->
+            <div class="help-popular">
+                <div class="section-label" style="text-align:center;margin-bottom:8px;">Popular Articles</div>
+                <div class="help-popular-grid">
+                    <a href="#faq" class="help-article" onclick="scrollToFaq('how-to-find-game')">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>How do I find a game near me?</span>
+                    </a>
+                    <a href="#faq" class="help-article" onclick="scrollToFaq('how-to-create-event')">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>How do I create my own event?</span>
+                    </a>
+                    <a href="#faq" class="help-article" onclick="scrollToFaq('account-verification')">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>How do I verify my account?</span>
+                    </a>
+                    <a href="#faq" class="help-article" onclick="scrollToFaq('report-user')">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>How do I report a user or issue?</span>
+                    </a>
+                    <a href="#faq" class="help-article" onclick="scrollToFaq('delete-account')">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>How do I delete my account?</span>
+                    </a>
+                    <a href="#faq" class="help-article" onclick="scrollToFaq('payment-methods')">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>What payment methods do you accept?</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="help-contact">
+                <div>
+                    <h2>Still need help?</h2>
+                    <p>Our support team is here to assist you. We'll get back to you within 24 hours.</p>
+                </div>
+                <div class="contact-buttons">
+                    <a href="mailto:support@huddle.com" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Email Support
+                    </a>
+                    <a href="#" class="btn btn-outline-light">
+                        <i class="fas fa-comment"></i> Live Chat
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ========================================
+    FOOTER
+    ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo">
+                        <i class="fas fa-basketball-ball"></i> HUDDLE
+                    </a>
+                    <p>Find your local game and connect with your community. From pickup to tournaments — we bring players together.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div>
+                        <h4>Platform</h4>
+                        <a href="../index.html#features">Find Games</a>
+                        <a href="../index.html#features">Create Events</a>
+                        <a href="#">Tournaments</a>
+                        <a href="#">Leagues</a>
+                    </div>
+                    <div>
+                        <h4>Community</h4>
+                        <a href="#">About Us</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Contact</a>
+                    </div>
+                    <div>
+                        <h4>Support</h4>
+                        <a href="help.html">Help Center</a>
+                        <a href="faq.html">FAQ</a>
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="cookies.html">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2026 Huddle. All rights reserved.</span>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="cookies.html">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================
+    SCRIPTS
+    ======================================== -->
+    <script>
+        // Navbar scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile menu
+        const toggle = document.getElementById('menuToggle');
+        const closeBtn = document.getElementById('closeMenu');
+        const panel = document.getElementById('mobilePanel');
+        const overlay = document.getElementById('mobileOverlay');
+
+        function openMenu() {
+            panel.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            panel.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        toggle.addEventListener('click', openMenu);
+        closeBtn.addEventListener('click', closeMenu);
+        overlay.addEventListener('click', closeMenu);
+        document.querySelectorAll('.mobile-panel a').forEach(a => a.addEventListener('click', closeMenu));
+
+        // Search function
+        function searchHelp() {
+            const query = document.getElementById('helpSearch').value.trim();
+            if (query) {
+                // Redirect to FAQ with search query
+                window.location.href = 'faq.html?search=' + encodeURIComponent(query);
+            }
+        }
+
+        // Enter key for search
+        document.getElementById('helpSearch').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                searchHelp();
+            }
+        });
+
+        // Scroll to FAQ section
+        function scrollToFaq(section) {
+            window.location.href = 'faq.html#' + section;
+        }
+    </script>
+
+</body>
+
+</html>

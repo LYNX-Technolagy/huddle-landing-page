@@ -1,0 +1,35 @@
+User-agent: *
+Allow: /
+
+# Disallow admin/private pages (if any)
+# Disallow: /admin/
+# Disallow: /dashboard/
+
+# Sitemap location
+Sitemap: https://huddle.com/sitemap.xml
+
+# Crawl delay (be nice to servers)
+Crawl-delay: 1
+
+# ========================================
+# SEO Crawler Rules
+# ========================================
+
+# Allow Google to crawl all pages
+User-agent: Googlebot
+Allow: /
+
+# Allow Bing to crawl all pages
+User-agent: Bingbot
+Allow: /
+
+# Allow all search engines
+User-agent: *
+Allow: /
+
+# Block AI crawlers 
+# User-agent: GPTBot
+# Disallow: /
+
+# User-agent: CCBot
+# Disallow: /

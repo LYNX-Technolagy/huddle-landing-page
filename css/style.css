@@ -1,26 +1,27 @@
 /* ========================================
-   ROOT — Monochrome + Haikyuu Orange
+   ROOT — Haikyū × Nike × Manga Palette
    ======================================== */
 :root {
-    --orange: #f77f00;
-    --orange-dark: #d96c00;
-    --orange-light: #ffb347;
-    --orange-glow: rgba(247, 127, 0, 0.15);
+    /* Haikyū Orange */
+    --orange: #F56A00;
+    --orange-dark: #D95C00;
+    --orange-light: #FFF0E8;
+    --orange-glow: rgba(245, 106, 0, 0.15);
 
-    --black: #111111;
-    --black-soft: #1a1a1a;
-    --gray-900: #2a2a2a;
+    /* Manga Monochrome */
+    --black: #1A1A1A;
+    --black-soft: #2A2A2A;
+    --gray-900: #3A3A3A;
     --gray-700: #555555;
     --gray-500: #888888;
-    --gray-300: #bbbbbb;
-    --gray-100: #f0f0f0;
-    --white: #ffffff;
+    --gray-300: #BBBBBB;
+    --gray-100: #F0F0F0;
+    --white: #F7F5F0;          /* Manga paper */
 
     --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
-    --shadow-hover: 0 16px 56px rgba(0, 0, 0, 0.10);
+    --shadow: 0 4px 24px rgba(26, 26, 26, 0.08);
+    --shadow-hover: 0 8px 32px rgba(26, 26, 26, 0.12);
 
-    /* Spacing */
     --space-xs: 4px;
     --space-sm: 8px;
     --space-md: 16px;
@@ -30,7 +31,6 @@
     --space-3xl: 64px;
     --space-4xl: 80px;
 
-    /* Container padding */
     --container-padding: 16px;
 }
 
@@ -75,7 +75,7 @@ ul {
 }
 
 /* ========================================
-   CONTAINER — Mobile-first
+   CONTAINER
    ======================================== */
 .container {
     width: 100%;
@@ -85,59 +85,67 @@ ul {
 }
 
 /* ========================================
-   BUTTONS — Touch-friendly
+   BUTTONS — Manga Style
    ======================================== */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: var(--space-sm);
-    padding: 14px 28px;
-    border-radius: 30px;
+    padding: 14px 32px;
+    border-radius: 0;
     font-family: var(--font);
-    font-weight: 600;
-    font-size: 0.85rem;
-    letter-spacing: 0.3px;
-    border: none;
+    font-weight: 800;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    border: 3px solid var(--black);
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: all 0.2s ease;
     text-transform: uppercase;
     min-height: 48px;
     min-width: 44px;
     touch-action: manipulation;
+    position: relative;
 }
 
 .btn-primary {
-    background: var(--black);
+    background: var(--orange);
     color: var(--white);
+    box-shadow: 6px 6px 0 var(--black);
 }
 
 .btn-primary:hover,
 .btn-primary:focus-visible {
-    background: var(--orange);
-    transform: scale(1.02);
+    background: var(--orange-dark);
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0 var(--black);
 }
 
 .btn-primary:active {
-    transform: scale(0.97);
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0 var(--black);
 }
 
 .btn-outline {
     background: transparent;
     color: var(--black);
-    border: 2px solid var(--black);
+    border: 3px solid var(--black);
+    box-shadow: 4px 4px 0 var(--black);
 }
 
 .btn-outline:hover,
 .btn-outline:focus-visible {
     background: var(--black);
     color: var(--white);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--black);
 }
 
 .btn-outline-light {
     background: transparent;
     color: var(--white);
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 4px 4px 0 rgba(255, 255, 255, 0.1);
 }
 
 .btn-outline-light:hover,
@@ -145,16 +153,22 @@ ul {
     background: var(--white);
     color: var(--black);
     border-color: var(--white);
+    transform: translate(-2px, -2px);
 }
 
 .btn-small {
-    padding: 8px 18px;
-    font-size: 0.7rem;
+    padding: 8px 20px;
+    font-size: 0.6rem;
     min-height: 36px;
+    box-shadow: 4px 4px 0 var(--black);
+}
+
+.btn-small:hover {
+    box-shadow: 6px 6px 0 var(--black);
 }
 
 /* ========================================
-   NAVIGATION — Mobile-first
+   NAVIGATION — Manga Style
    ======================================== */
 nav {
     position: fixed;
@@ -163,17 +177,17 @@ nav {
     right: 0;
     z-index: 1000;
     padding: 12px 0;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(247, 245, 240, 0.95);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    border-bottom: 3px solid var(--black);
     transition: all 0.3s ease;
 }
 
 nav.scrolled {
     padding: 8px 0;
-    background: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+    background: rgba(247, 245, 240, 0.98);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 .nav-wrapper {
@@ -188,11 +202,12 @@ nav.scrolled {
 .logo {
     font-size: 1.2rem;
     font-weight: 900;
-    letter-spacing: -0.5px;
+    letter-spacing: 2px;
     display: flex;
     align-items: center;
     gap: var(--space-sm);
     color: var(--black);
+    text-transform: uppercase;
 }
 
 .logo i {
@@ -207,13 +222,13 @@ nav.scrolled {
 }
 
 .nav-links a {
-    font-size: 0.8rem;
-    font-weight: 500;
+    font-size: 0.7rem;
+    font-weight: 700;
     color: var(--gray-700);
     transition: color 0.2s ease;
     position: relative;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
 }
 
 .nav-links a:hover,
@@ -227,7 +242,7 @@ nav.scrolled {
     bottom: -4px;
     left: 0;
     width: 0;
-    height: 2px;
+    height: 3px;
     background: var(--orange);
     transition: width 0.25s ease;
 }
@@ -235,16 +250,6 @@ nav.scrolled {
 .nav-links a:hover::after,
 .nav-links a:focus-visible::after {
     width: 100%;
-}
-
-.nav-links a.btn,
-.nav-links .btn {
-
-}
-
-.nav-links a.btn::after,
-.nav-links .btn::after {
-    display: none !important;
 }
 
 .mobile-menu {
@@ -260,7 +265,6 @@ nav.scrolled {
     touch-action: manipulation;
 }
 
-/* Mobile Overlay */
 .mobile-overlay {
     display: block;
     position: fixed;
@@ -291,6 +295,7 @@ nav.scrolled {
     box-shadow: -8px 0 40px rgba(0, 0, 0, 0.06);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    border-left: 3px solid var(--black);
 }
 
 .mobile-panel.active {
@@ -314,12 +319,12 @@ nav.scrolled {
 .mobile-panel a {
     display: block;
     padding: 14px 0;
-    font-weight: 500;
+    font-weight: 700;
     color: var(--gray-700);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    border-bottom: 2px solid var(--gray-100);
     text-transform: uppercase;
     font-size: 0.85rem;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     transition: color 0.2s ease;
 }
 
@@ -329,7 +334,7 @@ nav.scrolled {
 }
 
 /* ========================================
-   HERO — Mobile-first
+   HERO — Manga Style with Speed Lines
    ======================================== */
 .hero {
     min-height: 100dvh;
@@ -339,6 +344,7 @@ nav.scrolled {
     position: relative;
     overflow: hidden;
     background: var(--white);
+    border-bottom: 4px solid var(--black);
     transition: background-image 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -348,9 +354,9 @@ nav.scrolled {
     position: absolute;
     inset: 0;
     background: linear-gradient(135deg,
-            rgba(255, 255, 255, 0.60) 0%,
-            rgba(255, 255, 255, 0.45) 40%,
-            rgba(255, 255, 255, 0.25) 100%);
+            rgba(247, 245, 240, 0.70) 0%,
+            rgba(247, 245, 240, 0.50) 40%,
+            rgba(247, 245, 240, 0.30) 100%);
     z-index: 0;
     transition: all 0.6s ease;
 }
@@ -369,14 +375,96 @@ nav.scrolled {
     background: url('/assets/images/tennis-hero.jpg') no-repeat center/cover;
 }
 
-/* Sport-specific overlays */
-.hero[data-sport="basketball"]::before {
-    background: linear-gradient(135deg,
-            rgba(255, 255, 255, 0.60) 0%,
-            rgba(255, 255, 255, 0.45) 40%,
-            rgba(255, 255, 255, 0.25) 100%);
+/* ========================================
+   SPEED LINES — Bold Manga Action Lines
+   ======================================== */
+.speed-lines {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
 }
 
+.speed-line {
+    position: absolute;
+    height: 2px;
+    background: rgba(26, 26, 26, 0.06);
+    transform-origin: center;
+}
+
+.speed-line:nth-child(1) {
+    top: 12%;
+    left: -10%;
+    width: 50%;
+    transform: rotate(-8deg);
+    height: 3px;
+}
+
+.speed-line:nth-child(2) {
+    top: 25%;
+    right: -10%;
+    width: 35%;
+    transform: rotate(12deg);
+    height: 2px;
+}
+
+.speed-line:nth-child(3) {
+    top: 50%;
+    left: -5%;
+    width: 40%;
+    transform: rotate(-5deg);
+    height: 4px;
+}
+
+.speed-line:nth-child(4) {
+    bottom: 30%;
+    right: -10%;
+    width: 45%;
+    transform: rotate(7deg);
+    height: 2px;
+}
+
+.speed-line:nth-child(5) {
+    bottom: 15%;
+    left: -5%;
+    width: 30%;
+    transform: rotate(-10deg);
+    height: 3px;
+}
+
+.speed-line:nth-child(6) {
+    top: 70%;
+    right: -5%;
+    width: 25%;
+    transform: rotate(15deg);
+    height: 2px;
+}
+
+/* Bold accent speed lines (orange) */
+.speed-line.accent {
+    background: var(--orange);
+    opacity: 0.15;
+    height: 4px;
+}
+
+.speed-line.accent:nth-child(7) {
+    top: 35%;
+    left: -5%;
+    width: 20%;
+    transform: rotate(-15deg);
+}
+
+.speed-line.accent:nth-child(8) {
+    bottom: 45%;
+    right: -5%;
+    width: 15%;
+    transform: rotate(10deg);
+}
+
+/* ========================================
+   HERO GRID
+   ======================================== */
 .hero-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -394,44 +482,35 @@ nav.scrolled {
     text-align: center;
 }
 
-/* Badge */
 .hero-badge {
     display: inline-flex;
     align-items: center;
     gap: var(--space-sm);
-    padding: 4px 14px 4px 10px;
-    border-radius: 30px;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    padding: 6px 16px 6px 12px;
+    background: var(--white);
     font-size: 0.6rem;
-    font-weight: 600;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.8px;
+    letter-spacing: 1.5px;
     color: var(--gray-700);
     width: fit-content;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid var(--black);
+    border-radius: 0;
 }
 
 .hero-badge .dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
+    width: 6px;
+    height: 6px;
+    border-radius: 0;
     background: var(--orange);
     animation: blink 1.8s ease-in-out infinite;
 }
 
 @keyframes blink {
-    0%,
-    100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.2;
-    }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
 }
 
-/* Title */
 .hero-title {
     font-size: clamp(2.2rem, 10vw, 5.5rem);
     font-weight: 900;
@@ -443,6 +522,18 @@ nav.scrolled {
 .hero-title .highlight {
     color: var(--orange);
     transition: color 0.4s ease;
+    position: relative;
+}
+
+.hero-title .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--orange);
+    opacity: 0.3;
 }
 
 .hero-description {
@@ -478,13 +569,12 @@ nav.scrolled {
 
 .hero-visual .ring {
     position: absolute;
-    border-radius: 50%;
-    border: 2px solid rgba(247, 127, 0, 0.08);
+    border-radius: 0;
+    border: 3px solid rgba(26, 26, 26, 0.06);
     z-index: 0;
     transition: all 0.6s ease;
 }
 
-/* Responsive rings — mobile-first sizes */
 .hero-visual .ring:nth-child(1) {
     width: 220px;
     height: 220px;
@@ -493,13 +583,13 @@ nav.scrolled {
 .hero-visual .ring:nth-child(2) {
     width: 170px;
     height: 170px;
-    border-color: rgba(247, 127, 0, 0.05);
+    border-color: rgba(26, 26, 26, 0.04);
 }
 
 .hero-visual .ring:nth-child(3) {
     width: 120px;
     height: 120px;
-    border-color: rgba(247, 127, 0, 0.03);
+    border-color: rgba(26, 26, 26, 0.03);
 }
 
 /* Sport-specific ring colors */
@@ -532,7 +622,6 @@ nav.scrolled {
     transition: all 0.6s ease;
 }
 
-/* Sport-specific icon colors */
 .hero[data-sport="soccer"] .big-icon i {
     color: #34d399;
     opacity: 0.20;
@@ -548,7 +637,7 @@ nav.scrolled {
 
 .hero-visual .label {
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: var(--black);
@@ -560,7 +649,7 @@ nav.scrolled {
     font-weight: 400;
 }
 
-/* Pills — mobile-first */
+/* Pills — Manga Style */
 .feature-pills {
     display: flex;
     gap: var(--space-sm);
@@ -570,19 +659,17 @@ nav.scrolled {
 }
 
 .pill {
-    padding: 6px 14px;
-    border-radius: 30px;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    padding: 8px 16px;
+    border-radius: 0;
+    background: var(--white);
     font-size: 0.6rem;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
     color: var(--gray-700);
     cursor: pointer;
     transition: all 0.3s ease;
-    border: 2px solid transparent;
+    border: 2px solid var(--gray-300);
     user-select: none;
     touch-action: manipulation;
     min-height: 36px;
@@ -590,8 +677,8 @@ nav.scrolled {
 
 .pill:hover {
     transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    border-color: var(--black);
+    box-shadow: 4px 4px 0 var(--black);
 }
 
 .pill:active {
@@ -601,33 +688,33 @@ nav.scrolled {
 .pill.active {
     background: var(--orange);
     color: var(--white);
-    border-color: var(--orange);
-    box-shadow: 0 4px 20px rgba(247, 127, 0, 0.3);
+    border-color: var(--black);
+    box-shadow: 4px 4px 0 var(--black);
 }
 
-/* Sport-specific active pill colors */
 .hero[data-sport="soccer"] .pill.active {
     background: #34d399;
-    border-color: #34d399;
-    box-shadow: 0 4px 20px rgba(52, 211, 153, 0.3);
+    border-color: var(--black);
+    box-shadow: 4px 4px 0 var(--black);
 }
 .hero[data-sport="volleyball"] .pill.active {
     background: #fbbf24;
-    border-color: #fbbf24;
-    box-shadow: 0 4px 20px rgba(251, 191, 36, 0.3);
+    border-color: var(--black);
+    box-shadow: 4px 4px 0 var(--black);
 }
 .hero[data-sport="tennis"] .pill.active {
     background: #4ade80;
-    border-color: #4ade80;
-    box-shadow: 0 4px 20px rgba(74, 222, 128, 0.3);
+    border-color: var(--black);
+    box-shadow: 4px 4px 0 var(--black);
 }
 
 /* ========================================
-   FEATURES — Mobile-first
+   FEATURES — Manga Cards
    ======================================== */
 .features {
     padding: var(--space-3xl) 0;
     background: var(--gray-100);
+    border-bottom: 4px solid var(--black);
 }
 
 .features-header {
@@ -637,24 +724,25 @@ nav.scrolled {
 }
 
 .section-label {
-    font-size: 0.65rem;
-    font-weight: 600;
+    font-size: 0.6rem;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--gray-500);
+    letter-spacing: 2px;
+    color: var(--orange);
     margin-bottom: var(--space-sm);
 }
 
 .section-title {
     font-size: clamp(1.6rem, 5vw, 2.6rem);
-    font-weight: 800;
-    line-height: 1.1;
+    font-weight: 900;
+    line-height: 1.05;
     text-transform: uppercase;
     letter-spacing: -0.02em;
 }
 
 .section-title .highlight {
     color: var(--orange);
+    position: relative;
 }
 
 .section-sub {
@@ -673,21 +761,21 @@ nav.scrolled {
 .feature-card {
     background: var(--white);
     padding: var(--space-lg) var(--space-md) var(--space-lg);
-    border-radius: 12px;
     transition: all 0.3s ease;
-    border: 1px solid transparent;
+    border: 3px solid var(--black);
+    border-radius: 0;
 }
 
 .feature-card:hover {
     border-color: var(--orange);
-    box-shadow: var(--shadow-hover);
     transform: translateY(-4px);
+    box-shadow: 8px 8px 0 var(--black);
 }
 
 .feature-card .icon {
     width: 44px;
     height: 44px;
-    border-radius: 12px;
+    border-radius: 0;
     background: var(--gray-100);
     display: flex;
     align-items: center;
@@ -696,19 +784,21 @@ nav.scrolled {
     color: var(--black);
     margin-bottom: var(--space-md);
     transition: all 0.3s ease;
+    border: 2px solid var(--black);
 }
 
 .feature-card:hover .icon {
     background: var(--orange);
     color: var(--white);
+    border-color: var(--orange);
 }
 
 .feature-card h3 {
     font-size: 0.95rem;
-    font-weight: 700;
+    font-weight: 800;
     margin-bottom: var(--space-xs);
     text-transform: uppercase;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.5px;
 }
 
 .feature-card p {
@@ -719,11 +809,12 @@ nav.scrolled {
 }
 
 /* ========================================
-   HOW IT WORKS — Mobile-first
+   HOW IT WORKS — Manga Style
    ======================================== */
 .how-it-works {
     padding: var(--space-3xl) 0;
     background: var(--white);
+    border-bottom: 4px solid var(--black);
 }
 
 .steps-grid {
@@ -738,9 +829,10 @@ nav.scrolled {
 }
 
 .step .number {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 900;
-    color: var(--gray-100);
+    color: var(--orange);
+    opacity: 0.15;
     line-height: 1;
     margin-bottom: var(--space-xs);
     letter-spacing: -0.04em;
@@ -749,7 +841,7 @@ nav.scrolled {
 .step .icon-wrap {
     width: 56px;
     height: 56px;
-    border-radius: 50%;
+    border-radius: 0;
     background: var(--gray-100);
     display: flex;
     align-items: center;
@@ -758,16 +850,18 @@ nav.scrolled {
     font-size: 1.2rem;
     color: var(--black);
     transition: all 0.3s ease;
+    border: 2px solid var(--black);
 }
 
 .step:hover .icon-wrap {
     background: var(--orange);
     color: var(--white);
+    border-color: var(--orange);
 }
 
 .step h3 {
     font-size: 0.95rem;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: var(--space-xs);
@@ -783,12 +877,13 @@ nav.scrolled {
 }
 
 /* ========================================
-   WAITLIST — Mobile-first
+   WAITLIST — Manga Style
    ======================================== */
 .waitlist {
     padding: var(--space-3xl) 0;
     background: var(--black);
     color: var(--white);
+    border-bottom: 6px solid var(--orange);
 }
 
 .waitlist-wrapper {
@@ -806,7 +901,7 @@ nav.scrolled {
 }
 
 .waitlist-content .section-label {
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--orange);
 }
 
 .waitlist-content .section-title {
@@ -845,14 +940,16 @@ nav.scrolled {
 .waitlist-form {
     background: rgba(255, 255, 255, 0.04);
     padding: var(--space-lg);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 3px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0;
 }
 
 .waitlist-form .form-title {
     font-size: 1.1rem;
-    font-weight: 700;
+    font-weight: 800;
     margin-bottom: var(--space-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .waitlist-form .form-sub {
@@ -871,8 +968,8 @@ nav.scrolled {
 .waitlist-form select {
     padding: 14px 16px;
     background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0;
     font-family: var(--font);
     font-size: 0.9rem;
     color: var(--white);
@@ -915,18 +1012,15 @@ nav.scrolled {
     background: var(--orange);
     color: var(--white);
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 800;
     min-height: 52px;
+    border-color: var(--white);
 }
 
-.waitlist-form .btn:hover,
-.waitlist-form .btn:focus-visible {
+.waitlist-form .btn:hover {
     background: var(--orange-dark);
-    transform: scale(1.01);
-}
-
-.waitlist-form .btn:active {
-    transform: scale(0.98);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--white);
 }
 
 .waitlist-form .footnote {
@@ -941,13 +1035,14 @@ nav.scrolled {
 }
 
 /* ========================================
-   FOOTER — Mobile-first
+   FOOTER — Manga Style with "To Be Continued..."
    ======================================== */
 .footer {
     background: var(--black);
-    border-top: 1px solid rgba(255, 255, 255, 0.04);
     padding: var(--space-2xl) 0 var(--space-xl);
     color: rgba(255, 255, 255, 0.6);
+    position: relative;
+    border-top: 4px solid var(--orange);
 }
 
 .footer-top {
@@ -955,7 +1050,7 @@ nav.scrolled {
     grid-template-columns: 1fr;
     gap: var(--space-xl);
     padding-bottom: var(--space-xl);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.04);
 }
 
 .footer-brand .logo {
@@ -983,8 +1078,8 @@ nav.scrolled {
 .footer-social a {
     width: 36px;
     height: 36px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 0;
+    border: 2px solid rgba(255, 255, 255, 0.06);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1006,11 +1101,11 @@ nav.scrolled {
 }
 
 .footer-links h4 {
-    font-size: 0.65rem;
-    font-weight: 700;
+    font-size: 0.6rem;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 1.5px;
+    color: var(--orange);
     margin-bottom: var(--space-md);
 }
 
@@ -1054,14 +1149,50 @@ nav.scrolled {
 }
 
 /* ========================================
-   TABLET BREAKPOINT — 768px
+   TO BE CONTINUED — Manga Footer Element
+   ======================================== */
+.manga-continued {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-lg);
+    border-top: 3px solid var(--orange);
+    text-align: center;
+    font-family: var(--font);
+    font-weight: 900;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--orange);
+    position: relative;
+    opacity: 0.8;
+}
+
+.manga-continued::before {
+    content: '◆ ◆ ◆';
+    display: block;
+    font-size: 0.6rem;
+    letter-spacing: 8px;
+    color: rgba(255, 255, 255, 0.15);
+    margin-bottom: var(--space-sm);
+}
+
+.manga-continued span {
+    display: inline-block;
+    animation: pulseText 2s ease-in-out infinite;
+}
+
+@keyframes pulseText {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* ========================================
+   RESPONSIVE — TABLET (768px)
    ======================================== */
 @media (min-width: 768px) {
     :root {
         --container-padding: 24px;
     }
 
-    /* Navigation */
     nav {
         padding: 16px 0;
     }
@@ -1094,7 +1225,6 @@ nav.scrolled {
         display: none !important;
     }
 
-    /* Hero */
     .hero {
         padding: 100px 0 80px;
         min-height: 100vh;
@@ -1152,18 +1282,17 @@ nav.scrolled {
     .feature-pills {
         gap: var(--space-sm);
     }
+
     .pill {
         padding: 8px 18px;
         font-size: 0.65rem;
     }
 
-    /* Features */
     .features-grid {
         grid-template-columns: 1fr 1fr;
         gap: var(--space-lg);
     }
 
-    /* How It Works */
     .steps-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: var(--space-lg);
@@ -1173,7 +1302,6 @@ nav.scrolled {
         max-width: 280px;
     }
 
-    /* Waitlist */
     .waitlist-wrapper {
         grid-template-columns: 1fr 1fr;
         gap: var(--space-2xl);
@@ -1200,7 +1328,6 @@ nav.scrolled {
         min-height: 48px;
     }
 
-    /* Footer */
     .footer-top {
         grid-template-columns: 1.5fr 2fr;
         gap: var(--space-2xl);
@@ -1220,10 +1347,14 @@ nav.scrolled {
         justify-content: space-between;
         text-align: left;
     }
+
+    .manga-continued {
+        font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    }
 }
 
 /* ========================================
-   DESKTOP BREAKPOINT — 1024px
+   RESPONSIVE — DESKTOP (1024px)
    ======================================== */
 @media (min-width: 1024px) {
     .hero-visual .ring:nth-child(1) {
@@ -1262,7 +1393,7 @@ nav.scrolled {
 }
 
 /* ========================================
-   LARGE DESKTOP — 1200px+
+   RESPONSIVE — LARGE DESKTOP (1200px+)
    ======================================== */
 @media (min-width: 1200px) {
     .container {
@@ -1332,7 +1463,8 @@ nav.scrolled {
     .hero::before,
     .hero-visual .ring,
     .feature-pills,
-    .footer-social {
+    .footer-social,
+    .speed-lines {
         display: none !important;
     }
 
@@ -1399,5 +1531,9 @@ nav.scrolled {
 
     .footer-links a {
         color: #666 !important;
+    }
+
+    .manga-continued {
+        display: none !important;
     }
 }

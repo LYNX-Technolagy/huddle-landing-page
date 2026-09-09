@@ -1,5 +1,6 @@
 /* ========================================
    PAGES.CSS — Privacy & Terms Pages
+   Manga Style — Haikyū × Nike × Manga
    ======================================== */
 
 /* ========================================
@@ -8,7 +9,7 @@
 .page-wrapper {
     padding-top: 80px;
     min-height: 100vh;
-    background: var(--white);
+    background: var(--white, #F7F5F0);
 }
 
 .page-container {
@@ -18,74 +19,80 @@
 }
 
 /* ========================================
-   PAGE HEADER
+   PAGE HEADER — Manga Style
    ======================================== */
 .page-header {
     margin-bottom: 48px;
     padding-bottom: 32px;
-    border-bottom: 2px solid var(--gray-100);
+    border-bottom: 4px solid var(--black, #1A1A1A);
 }
 
 .page-header .page-label {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.7rem;
-    font-weight: 600;
+    font-size: 0.6rem;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: var(--orange);
+    color: var(--orange, #F56A00);
     margin-bottom: 12px;
 }
 
 .page-header .page-label::before {
     content: '';
     width: 24px;
-    height: 2px;
-    background: var(--orange);
+    height: 3px;
+    background: var(--orange, #F56A00);
 }
 
 .page-header h1 {
     font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800;
-    line-height: 1.1;
+    font-weight: 900;
+    line-height: 1.05;
     letter-spacing: -0.02em;
-    color: var(--black);
+    text-transform: uppercase;
+    color: var(--black, #1A1A1A);
 }
 
 .page-header .page-meta {
     margin-top: 12px;
     font-size: 0.85rem;
-    color: var(--gray-500);
+    font-weight: 400;
+    color: var(--gray-500, #888888);
 }
 
 .page-header .page-meta .separator {
     margin: 0 8px;
-    color: var(--gray-300);
+    color: var(--gray-300, #BBBBBB);
 }
 
 .page-header .page-meta a {
-    color: var(--orange);
+    color: var(--orange, #F56A00);
+    font-weight: 700;
     transition: color 0.2s ease;
 }
 
 .page-header .page-meta a:hover {
-    color: var(--orange-dark);
+    color: var(--orange-dark, #D95C00);
 }
 
 /* ========================================
-   PAGE CONTENT
+   PAGE CONTENT — Manga Style
    ======================================== */
 .page-content {
-    color: var(--gray-700);
+    color: var(--gray-700, #555555);
 }
 
 .page-content h2 {
     font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--black);
+    font-weight: 800;
+    color: var(--black, #1A1A1A);
     margin: 40px 0 16px;
     letter-spacing: -0.01em;
+    text-transform: uppercase;
+    border-bottom: 3px solid var(--orange, #F56A00);
+    padding-bottom: 8px;
 }
 
 .page-content h2:first-of-type {
@@ -94,16 +101,18 @@
 
 .page-content h3 {
     font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--black-soft);
+    font-weight: 700;
+    color: var(--black-soft, #2A2A2A);
     margin: 28px 0 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .page-content p {
     font-size: 0.95rem;
     line-height: 1.8;
     margin-bottom: 16px;
-    color: var(--gray-700);
+    color: var(--gray-700, #555555);
 }
 
 .page-content ul,
@@ -115,12 +124,12 @@
 .page-content ol li {
     font-size: 0.95rem;
     line-height: 1.8;
-    color: var(--gray-700);
+    color: var(--gray-700, #555555);
     margin-bottom: 8px;
 }
 
 .page-content ul li::marker {
-    color: var(--orange);
+    color: var(--orange, #F56A00);
 }
 
 .page-content ul li ul {
@@ -129,30 +138,33 @@
 }
 
 .page-content strong {
-    color: var(--black);
-    font-weight: 600;
+    color: var(--black, #1A1A1A);
+    font-weight: 700;
 }
 
 .page-content a {
-    color: var(--orange);
+    color: var(--orange, #F56A00);
     text-decoration: underline;
     text-underline-offset: 2px;
+    font-weight: 600;
     transition: color 0.2s ease;
 }
 
 .page-content a:hover {
-    color: var(--orange-dark);
+    color: var(--orange-dark, #D95C00);
 }
 
 /* ========================================
-   HIGHLIGHT BOX
+   HIGHLIGHT BOX — Manga Style
    ======================================== */
 .page-content .highlight-box {
-    background: var(--gray-100);
-    border-left: 4px solid var(--orange);
+    background: var(--gray-100, #F0F0F0);
+    border-left: 6px solid var(--orange, #F56A00);
     padding: 20px 24px;
-    border-radius: 0 8px 8px 0;
+    border-radius: 0;
     margin: 24px 0;
+    border: 3px solid var(--black, #1A1A1A);
+    border-left-width: 6px;
 }
 
 .page-content .highlight-box p {
@@ -161,25 +173,27 @@
 }
 
 .page-content .highlight-box strong {
-    color: var(--black);
+    color: var(--black, #1A1A1A);
 }
 
 /* ========================================
-   TABLE OF CONTENTS
+   TABLE OF CONTENTS — Manga Style
    ======================================== */
 .page-toc {
-    background: var(--gray-100);
-    border-radius: 12px;
+    background: var(--gray-100, #F0F0F0);
+    border-radius: 0;
     padding: 24px 28px;
     margin-bottom: 40px;
+    border: 3px solid var(--black, #1A1A1A);
+    box-shadow: 6px 6px 0 var(--black, #1A1A1A);
 }
 
 .page-toc .toc-title {
-    font-size: 0.8rem;
-    font-weight: 700;
+    font-size: 0.65rem;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--gray-700);
+    letter-spacing: 1.5px;
+    color: var(--orange, #F56A00);
     margin-bottom: 12px;
 }
 
@@ -201,26 +215,29 @@
     display: block;
     padding: 4px 0;
     font-size: 0.85rem;
-    color: var(--gray-700);
+    font-weight: 600;
+    color: var(--gray-700, #555555);
     text-decoration: none;
     transition: all 0.2s ease;
-    border-bottom: 1px solid transparent;
+    border-bottom: 2px solid transparent;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
 }
 
 .page-toc ul li a:hover {
-    color: var(--orange);
-    border-bottom-color: var(--orange);
+    color: var(--orange, #F56A00);
+    border-bottom-color: var(--orange, #F56A00);
 }
 
 /* ========================================
-   LAST UPDATED BANNER
+   LAST UPDATED BANNER — Manga Style
    ======================================== */
 .page-updated {
     margin-top: 48px;
     padding-top: 24px;
-    border-top: 1px solid var(--gray-100);
+    border-top: 4px solid var(--black, #1A1A1A);
     font-size: 0.8rem;
-    color: var(--gray-500);
+    color: var(--gray-500, #888888);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -230,16 +247,24 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: var(--orange);
+    color: var(--orange, #F56A00);
     text-decoration: none;
-    font-weight: 500;
-    font-size: 0.85rem;
+    font-weight: 800;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     transition: all 0.2s ease;
+    border: 2px solid var(--orange, #F56A00);
+    padding: 8px 16px;
+    box-shadow: 4px 4px 0 var(--black, #1A1A1A);
 }
 
 .page-updated .back-link:hover {
     gap: 12px;
-    color: var(--orange-dark);
+    background: var(--orange, #F56A00);
+    color: var(--white, #F7F5F0);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--black, #1A1A1A);
 }
 
 .page-updated .back-link i {
@@ -247,7 +272,7 @@
 }
 
 /* ========================================
-   RESPONSIVE
+   RESPONSIVE — TABLET (768px)
    ======================================== */
 @media (max-width: 768px) {
     .page-container {
@@ -280,6 +305,7 @@
 
     .page-toc {
         padding: 16px 20px;
+        box-shadow: 4px 4px 0 var(--black, #1A1A1A);
     }
 
     .page-toc ul {
@@ -296,8 +322,16 @@
         gap: 12px;
         text-align: center;
     }
+
+    .page-updated .back-link {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
+/* ========================================
+   RESPONSIVE — MOBILE (480px)
+   ======================================== */
 @media (max-width: 480px) {
     .page-wrapper {
         padding-top: 64px;
@@ -318,10 +352,103 @@
 
     .page-toc {
         padding: 12px 16px;
+        box-shadow: 3px 3px 0 var(--black, #1A1A1A);
     }
 
     .page-toc ul li a {
         font-size: 0.8rem;
         padding: 6px 0;
+    }
+
+    .page-updated .back-link {
+        font-size: 0.7rem;
+        padding: 6px 12px;
+        box-shadow: 3px 3px 0 var(--black, #1A1A1A);
+    }
+}
+
+/* ========================================
+   TOUCH DEVICE OPTIMIZATIONS
+   ======================================== */
+@media (hover: none) {
+    .page-toc ul li a:hover {
+        border-bottom-color: transparent;
+    }
+
+    .page-updated .back-link:hover {
+        transform: none;
+    }
+
+    .page-updated .back-link:active {
+        transform: scale(0.97);
+    }
+}
+
+/* ========================================
+   REDUCED MOTION
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+@media print {
+    .page-wrapper {
+        padding-top: 0;
+        background: white !important;
+    }
+
+    .page-header {
+        border-bottom: 2px solid #000;
+    }
+
+    .page-header .page-label {
+        color: #000 !important;
+    }
+
+    .page-header .page-label::before {
+        background: #000 !important;
+    }
+
+    .page-toc {
+        border: 1px solid #ddd;
+        box-shadow: none !important;
+        background: #f9f9f9 !important;
+    }
+
+    .page-toc ul li a {
+        color: #000 !important;
+        border-bottom: 1px solid #eee;
+    }
+
+    .page-content .highlight-box {
+        border-left: 3px solid #000;
+        border: 1px solid #ddd;
+        border-left-width: 4px;
+        background: #f9f9f9 !important;
+    }
+
+    .page-updated {
+        border-top: 2px solid #000;
+    }
+
+    .page-updated .back-link {
+        border: 1px solid #000;
+        box-shadow: none !important;
+        background: transparent !important;
+        color: #000 !important;
+    }
+
+    .page-updated .back-link:hover {
+        transform: none !important;
+        box-shadow: none !important;
     }
 }

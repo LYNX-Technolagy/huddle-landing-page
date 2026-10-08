@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>You're In — Huddle Beta</title>
+    <meta name="description" content="Thanks for joining the Huddle beta. Install the app and invite your friends." />
+    <meta name="robots" content="noindex, follow" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/icons/favicon.ico" sizes="any" />
+    <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap"
+        rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/beta.css" />
+</head>
+
+<body>
+
+    <!-- ========================================
+    NAVIGATION
+    ======================================== -->
+    <nav id="navbar">
+        <div class="nav-wrapper">
+            <a href="/index.html" class="logo">
+                <i class="fas fa-basketball-ball"></i> HUDDLE
+            </a>
+            <ul class="nav-links">
+                <li><a href="/index.html#features">Features</a></li>
+                <li><a href="/index.html#how-it-works">How It Works</a></li>
+            </ul>
+            <button class="mobile-menu" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-panel" id="mobilePanel">
+        <button class="close-btn" id="closeMenu"><i class="fas fa-times"></i></button>
+        <a href="/index.html#features">Features</a>
+        <a href="/index.html#how-it-works">How It Works</a>
+    </div>
+
+    <!-- ========================================
+    THANK YOU PAGE
+    ======================================== -->
+    <main class="thanks-wrapper">
+        <div class="thanks-container">
+
+            <!-- Success Hero -->
+            <div class="thanks-hero">
+                <div class="thanks-check">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="thanks-label">APPLICATION RECEIVED</div>
+                <h1>You're<br /><span class="highlight">on the list.</span></h1>
+                <p>
+                    Thanks for applying to the Huddle beta. We'll review your application
+                    and send you an invite email as soon as your spot is ready.
+                </p>
+            </div>
+
+            <!-- What's Next -->
+            <div class="thanks-section">
+                <h2>What happens next</h2>
+                <div class="thanks-steps">
+                    <div class="thanks-step">
+                        <div class="step-num">1</div>
+                        <div class="step-text">
+                            <strong>We review your application</strong>
+                            <span>Usually within 48 hours.</span>
+                        </div>
+                    </div>
+                    <div class="thanks-step">
+                        <div class="step-num">2</div>
+                        <div class="step-text">
+                            <strong>You get an invite email</strong>
+                            <span>Check your inbox (and spam, just in case).</span>
+                        </div>
+                    </div>
+                    <div class="thanks-step">
+                        <div class="step-num">3</div>
+                        <div class="step-text">
+                            <strong>Install Huddle and start playing</strong>
+                            <span>Instructions below — takes 30 seconds.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Install -->
+            <div class="thanks-section">
+                <h2>Install Huddle now</h2>
+                <p class="thanks-sub">
+                    You can install the beta right away — no app store required.
+                </p>
+
+                <a href="https://huddleza.netlify.app" class="btn btn-primary btn-open-app" target="_blank" rel="noopener">
+                    <i class="fas fa-external-link-alt"></i> Open Huddle
+                </a>
+
+                <div class="install-grid">
+
+                    <!-- iOS -->
+                    <div class="install-card">
+                        <div class="install-icon">
+                            <i class="fab fa-apple"></i>
+                        </div>
+                        <h3>On iPhone</h3>
+                        <ol>
+                            <li>Open <strong>huddleza.netlify.app</strong> in <strong>Safari</strong></li>
+                            <li>Tap the <strong>Share</strong> button (square with arrow)</li>
+                            <li>Scroll down and tap <strong>"Add to Home Screen"</strong></li>
+                            <li>Name it "Huddle" and tap <strong>Add</strong></li>
+                        </ol>
+                    </div>
+
+                    <!-- Android -->
+                    <div class="install-card">
+                        <div class="install-icon">
+                            <i class="fab fa-android"></i>
+                        </div>
+                        <h3>On Android</h3>
+                        <ol>
+                            <li>Open <strong>huddleza.netlify.app</strong> in <strong>Chrome</strong></li>
+                            <li>Wait a few seconds</li>
+                            <li>Tap <strong>"Install app"</strong> when it appears</li>
+                            <li>Or: tap the ⋮ menu → <strong>Install app</strong></li>
+                        </ol>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Invite -->
+            <div class="thanks-section thanks-invite">
+                <div class="invite-slogan">
+                    <h2>Huddles work better with friends</h2>
+                    <p>Invite yours and start building your crew.</p>
+                </div>
+
+                <div class="invite-copy-box">
+                    <div class="invite-message" id="inviteMessage">Huddles work better with friends 🏐
+Find pickup games near you → https://huddleza.netlify.app</div>
+
+                    <button class="btn btn-copy" id="copyBtn" type="button">
+                        <i class="fas fa-copy"></i>
+                        <span id="copyBtnLabel">Copy Invite</span>
+                    </button>
+                </div>
+
+                <div class="invite-share">
+                    <a
+                        href="https://wa.me/?text=Huddles%20work%20better%20with%20friends%20%F0%9F%8F%90%0AFind%20pickup%20games%20near%20you%20%E2%86%92%20https%3A%2F%2Fhuddleza.netlify.app"
+                        target="_blank"
+                        rel="noopener"
+                        class="share-btn share-whatsapp"
+                    >
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a
+                        href="sms:?&body=Huddles%20work%20better%20with%20friends%20%F0%9F%8F%90%0AFind%20pickup%20games%20near%20you%20%E2%86%92%20https%3A%2F%2Fhuddleza.netlify.app"
+                        class="share-btn share-sms"
+                    >
+                        <i class="fas fa-comment-sms"></i> SMS
+                    </a>
+                    <button
+                        class="share-btn share-native"
+                        id="nativeShareBtn"
+                        type="button"
+                        hidden
+                    >
+                        <i class="fas fa-share-alt"></i> More
+                    </button>
+                </div>
+            </div>
+
+            <!-- Back -->
+            <div class="beta-back">
+                <a href="/index.html">
+                    <i class="fas fa-arrow-left"></i> Back to home
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ========================================
+    FOOTER
+    ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="/index.html" class="logo">
+                        <i class="fas fa-basketball-ball"></i> HUDDLE
+                    </a>
+                    <p>Find your local game and connect with your community. From pickup to tournaments — we bring
+                        players together.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/buildinglynx/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@filmedbyluvo"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div>
+                        <h4>Platform</h4>
+                        <a href="/index.html#features">Find Games</a>
+                        <a href="/index.html#features">Create Events</a>
+                        <a href="#">Tournaments</a>
+                        <a href="#">Leagues</a>
+                    </div>
+                    <div>
+                        <h4>Community</h4>
+                        <a href="#">About Us</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Contact</a>
+                    </div>
+                    <div>
+                        <h4>Support</h4>
+                        <a href="/pages/help.html">Help Center</a>
+                        <a href="/pages/faq.html">FAQ</a>
+                        <a href="/pages/privacy.html">Privacy Policy</a>
+                        <a href="/pages/terms.html">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2026 Huddle. All rights reserved.</span>
+                <div class="footer-bottom-links">
+                    <a href="/pages/privacy.html">Privacy</a>
+                    <a href="/pages/terms.html">Terms</a>
+                    <a href="/pages/cookies.html">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================
+    SCRIPTS
+    ======================================== -->
+    <script>
+        // Navbar scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile menu
+        const toggle = document.getElementById('menuToggle');
+        const closeBtn = document.getElementById('closeMenu');
+        const panel = document.getElementById('mobilePanel');
+        const overlay = document.getElementById('mobileOverlay');
+
+        function openMenu() {
+            panel.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMenu() {
+            panel.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        toggle.addEventListener('click', openMenu);
+        closeBtn.addEventListener('click', closeMenu);
+        overlay.addEventListener('click', closeMenu);
+        document.querySelectorAll('.mobile-panel a').forEach(a => a.addEventListener('click', closeMenu));
+
+        // ========================================
+        // COPY INVITE BUTTON
+        // ========================================
+        const INVITE_TEXT = `Huddles work better with friends 🏐\nFind pickup games near you → https://huddleza.netlify.app`;
+
+        const copyBtn = document.getElementById('copyBtn');
+        const copyBtnLabel = document.getElementById('copyBtnLabel');
+
+        copyBtn.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(INVITE_TEXT);
+                copyBtnLabel.textContent = 'Copied!';
+                copyBtn.classList.add('copied');
+                setTimeout(() => {
+                    copyBtnLabel.textContent = 'Copy Invite';
+                    copyBtn.classList.remove('copied');
+                }, 2200);
+            } catch (err) {
+                // Fallback for older browsers
+                const ta = document.createElement('textarea');
+                ta.value = INVITE_TEXT;
+                ta.style.position = 'fixed';
+                ta.style.left = '-9999px';
+                document.body.appendChild(ta);
+                ta.select();
+                try {
+                    document.execCommand('copy');
+                    copyBtnLabel.textContent = 'Copied!';
+                    setTimeout(() => copyBtnLabel.textContent = 'Copy Invite', 2200);
+                } catch (e) {
+                    copyBtnLabel.textContent = 'Copy failed';
+                    setTimeout(() => copyBtnLabel.textContent = 'Copy Invite', 2200);
+                }
+                document.body.removeChild(ta);
+            }
+        });
+
+        // ========================================
+        // NATIVE SHARE (if supported)
+        // ========================================
+        const nativeShareBtn = document.getElementById('nativeShareBtn');
+        if (navigator.share) {
+            nativeShareBtn.hidden = false;
+            nativeShareBtn.addEventListener('click', async () => {
+                try {
+                    await navigator.share({
+                        title: 'Huddle',
+                        text: 'Huddles work better with friends 🏐',
+                        url: 'https://huddleza.netlify.app',
+                    });
+                } catch (err) {
+                    // User cancelled — no-op
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>

@@ -9,6 +9,16 @@
   to = "/index.html"
   status = 200
 
+[[redirects]]
+  from = "/beta"
+  to = "/pages/beta.html"
+  status = 200
+
+[[redirects]]
+  from = "/thank-you"
+  to = "/pages/thank-you.html"
+  status = 200
+
 [[headers]]
   for = "/*"
   [headers.values]

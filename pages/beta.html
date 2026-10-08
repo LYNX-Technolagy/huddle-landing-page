@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Become a Beta Tester — Huddle</title>
+    <meta name="description"
+        content="Join the Huddle beta and help shape the future of local pickup sports. Sign up to test the app before launch." />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="https://joinhuddleup.netlify.app/pages/beta.html" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/icons/favicon.ico" sizes="any" />
+    <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap"
+        rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/beta.css" />
+</head>
+
+<body>
+
+    <!-- ========================================
+    NAVIGATION
+    ======================================== -->
+    <nav id="navbar">
+        <div class="nav-wrapper">
+            <a href="/index.html" class="logo">
+                <i class="fas fa-basketball-ball"></i> HUDDLE
+            </a>
+            <ul class="nav-links">
+                <li><a href="/index.html#features">Features</a></li>
+                <li><a href="/index.html#how-it-works">How It Works</a></li>
+                <li><a href="/index.html#beta">Beta</a></li>
+            </ul>
+            <button class="mobile-menu" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-panel" id="mobilePanel">
+        <button class="close-btn" id="closeMenu"><i class="fas fa-times"></i></button>
+        <a href="/index.html#features">Features</a>
+        <a href="/index.html#how-it-works">How It Works</a>
+        <a href="/index.html#beta">Beta</a>
+    </div>
+
+    <!-- ========================================
+    BETA FORM
+    ======================================== -->
+    <main class="beta-wrapper">
+        <div class="beta-container">
+
+            <!-- Hero -->
+            <div class="beta-hero">
+                <div class="beta-badge">
+                    <span class="dot"></span> BETA 1 — NOW OPEN
+                </div>
+                <h1>Become a<br /><span class="highlight">Beta Tester</span></h1>
+                <p>
+                    Be among the first to use Huddle. Help us shape the platform,
+                    get early access, and earn founder status in your community.
+                </p>
+            </div>
+
+            <!-- Benefits -->
+            <div class="beta-benefits">
+                <div class="beta-benefit">
+                    <i class="fas fa-bolt"></i>
+                    <span>Early access</span>
+                </div>
+                <div class="beta-benefit">
+                    <i class="fas fa-crown"></i>
+                    <span>Founder status</span>
+                </div>
+                <div class="beta-benefit">
+                    <i class="fas fa-comments"></i>
+                    <span>Direct feedback line</span>
+                </div>
+            </div>
+
+            <!-- Form Card -->
+            <div class="beta-card">
+
+                <div class="beta-card-header">
+                    <h2>Tell Us About You</h2>
+                    <p>We use this to match you with the right beta group and games in your area.</p>
+                </div>
+
+                <form
+                    id="betaForm"
+                    action="https://formspree.io/f/mbgdoaan"
+                    method="POST"
+                    novalidate
+                >
+                    <!-- Honeypot -->
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+                    <!-- Subject line for email notification -->
+                    <input type="hidden" name="_subject" value="New Huddle Beta Tester Application" />
+
+                    <!-- ============================ -->
+                    <!-- 1. FULL NAME -->
+                    <!-- ============================ -->
+                    <div class="form-field">
+                        <label for="betaName">
+                            FULL NAME <span class="required">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="betaName"
+                            name="name"
+                            placeholder="e.g. John Smith"
+                            required
+                            maxlength="80"
+                            autocomplete="name"
+                        />
+                        <span class="form-error" data-for="betaName"></span>
+                    </div>
+
+                    <!-- ============================ -->
+                    <!-- 2. EMAIL -->
+                    <!-- ============================ -->
+                    <div class="form-field">
+                        <label for="betaEmail">
+                            EMAIL <span class="required">*</span>
+                        </label>
+                        <input
+                            type="email"
+                            id="betaEmail"
+                            name="email"
+                            placeholder="you@example.com"
+                            required
+                            autocomplete="email"
+                        />
+                        <span class="form-error" data-for="betaEmail"></span>
+                    </div>
+
+                    <!-- ============================ -->
+                    <!-- 3. CITY -->
+                    <!-- ============================ -->
+                    <div class="form-field">
+                        <label for="betaCity">
+                            CITY / AREA <span class="required">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="betaCity"
+                            name="city"
+                            placeholder="e.g. Cape Town, Johannesburg, Durban"
+                            required
+                            maxlength="80"
+                            autocomplete="address-level2"
+                        />
+                        <span class="form-hint">We use this to know where to prioritize testing.</span>
+                        <span class="form-error" data-for="betaCity"></span>
+                    </div>
+
+                    <!-- ============================ -->
+                    <!-- 4. PRIMARY SPORT -->
+                    <!-- ============================ -->
+                    <div class="form-field">
+                        <label for="betaSport">
+                            PRIMARY SPORT <span class="required">*</span>
+                        </label>
+                        <div class="select-wrap">
+                            <select id="betaSport" name="sport" required>
+                                <option value="">Select your main sport</option>
+                                <option value="basketball">🏀 Basketball</option>
+                                <option value="soccer">⚽ Soccer</option>
+                                <option value="volleyball">🏐 Volleyball</option>
+                                <option value="tennis">🎾 Tennis</option>
+                                <option value="running">🏃 Running</option>
+                                <option value="other">🎯 Other</option>
+                            </select>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <span class="form-error" data-for="betaSport"></span>
+                    </div>
+
+                    <!-- ============================ -->
+                    <!-- 5. PLAY FREQUENCY -->
+                    <!-- ============================ -->
+                    <div class="form-field">
+                        <label for="betaFrequency">
+                            HOW OFTEN DO YOU PLAY? <span class="required">*</span>
+                        </label>
+                        <div class="select-wrap">
+                            <select id="betaFrequency" name="frequency" required>
+                                <option value="">Select frequency</option>
+                                <option value="daily">Almost every day</option>
+                                <option value="weekly">A few times a week</option>
+                                <option value="weekly_once">Once a week</option>
+                                <option value="monthly">A few times a month</option>
+                                <option value="sometimes">Occasionally</option>
+                            </select>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <span class="form-error" data-for="betaFrequency"></span>
+                    </div>
+
+                    <!-- ============================ -->
+                    <!-- 6. DEVICE -->
+                    <!-- ============================ -->
+                    <div class="form-field">
+                        <label>
+                            WHAT DEVICE WILL YOU TEST ON? <span class="required">*</span>
+                        </label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="device" value="ios" required />
+                                <span class="radio-box"></span>
+                                <span class="radio-label">
+                                    <i class="fab fa-apple"></i> iPhone
+                                </span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="device" value="android" required />
+                                <span class="radio-box"></span>
+                                <span class="radio-label">
+                                    <i class="fab fa-android"></i> Android
+                                </span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="device" value="both" required />
+                                <span class="radio-box"></span>
+                                <span class="radio-label">
+                                    <i class="fas fa-mobile-alt"></i> Both
+                                </span>
+                            </label>
+                        </div>
+                        <span class="form-error" data-for="device"></span>
+                    </div>
+
+                    <!-- ============================ -->
+                    <!-- 7. HOW HEARD -->
+                    <!-- ============================ -->
+                    <div class="form-field">
+                        <label for="betaHeard">
+                            HOW DID YOU HEAR ABOUT HUDDLE?
+                        </label>
+                        <div class="select-wrap">
+                            <select id="betaHeard" name="heard_from">
+                                <option value="">Select an option (optional)</option>
+                                <option value="friend">A friend told me</option>
+                                <option value="instagram">Instagram</option>
+                                <option value="tiktok">TikTok</option>
+                                <option value="twitter">Twitter / X</option>
+                                <option value="whatsapp">WhatsApp group</option>
+                                <option value="google">Google search</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+
+                    <!-- ============================ -->
+                    <!-- 8. NOTES -->
+                    <!-- ============================ -->
+                    <div class="form-field">
+                        <label for="betaNotes">
+                            ANYTHING ELSE WE SHOULD KNOW?
+                        </label>
+                        <textarea
+                            id="betaNotes"
+                            name="notes"
+                            rows="3"
+                            maxlength="500"
+                            placeholder="Tell us about your sports community, a specific game you'd love to find, or anything else (optional)"
+                        ></textarea>
+                        <span class="form-hint char-count">
+                            <span id="notesCount">0</span> / 500
+                        </span>
+                    </div>
+
+                    <!-- ============================ -->
+                    <!-- 9. CONSENT -->
+                    <!-- ============================ -->
+                    <div class="form-field">
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="consent" id="betaConsent" required />
+                            <span class="checkbox-box"></span>
+                            <span class="checkbox-label">
+                                I agree to be contacted about the Huddle beta and
+                                understand my information will be handled according to the
+                                <a href="/pages/privacy.html" target="_blank">Privacy Policy</a>.
+                            </span>
+                        </label>
+                        <span class="form-error" data-for="betaConsent"></span>
+                    </div>
+
+                    <!-- ============================ -->
+                    <!-- SUBMIT -->
+                    <!-- ============================ -->
+                    <button type="submit" class="btn btn-primary btn-submit" id="betaSubmit">
+                        <i class="fas fa-paper-plane"></i>
+                        Apply for Beta Access
+                    </button>
+
+                    <div class="form-footnote">
+                        <i class="fas fa-lock"></i>
+                        We'll only email you about the beta. No spam, ever.
+                    </div>
+
+                </form>
+
+            </div>
+
+            <!-- Back -->
+            <div class="beta-back">
+                <a href="/index.html">
+                    <i class="fas fa-arrow-left"></i> Back to home
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ========================================
+    FOOTER
+    ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="/index.html" class="logo">
+                        <i class="fas fa-basketball-ball"></i> HUDDLE
+                    </a>
+                    <p>Find your local game and connect with your community. From pickup to tournaments — we bring
+                        players together.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/buildinglynx/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@filmedbyluvo"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div>
+                        <h4>Platform</h4>
+                        <a href="/index.html#features">Find Games</a>
+                        <a href="/index.html#features">Create Events</a>
+                        <a href="#">Tournaments</a>
+                        <a href="#">Leagues</a>
+                    </div>
+                    <div>
+                        <h4>Community</h4>
+                        <a href="#">About Us</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Contact</a>
+                    </div>
+                    <div>
+                        <h4>Support</h4>
+                        <a href="/pages/help.html">Help Center</a>
+                        <a href="/pages/faq.html">FAQ</a>
+                        <a href="/pages/privacy.html">Privacy Policy</a>
+                        <a href="/pages/terms.html">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2026 Huddle. All rights reserved.</span>
+                <div class="footer-bottom-links">
+                    <a href="/pages/privacy.html">Privacy</a>
+                    <a href="/pages/terms.html">Terms</a>
+                    <a href="/pages/cookies.html">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================
+    SCRIPTS
+    ======================================== -->
+    <script>
+        // ========================================
+        // NAVBAR SCROLL
+        // ========================================
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // ========================================
+        // MOBILE MENU
+        // ========================================
+        const toggle = document.getElementById('menuToggle');
+        const closeBtn = document.getElementById('closeMenu');
+        const panel = document.getElementById('mobilePanel');
+        const overlay = document.getElementById('mobileOverlay');
+
+        function openMenu() {
+            panel.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMenu() {
+            panel.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        toggle.addEventListener('click', openMenu);
+        closeBtn.addEventListener('click', closeMenu);
+        overlay.addEventListener('click', closeMenu);
+        document.querySelectorAll('.mobile-panel a').forEach(a => a.addEventListener('click', closeMenu));
+
+        // ========================================
+        // CHARACTER COUNTER
+        // ========================================
+        const notes = document.getElementById('betaNotes');
+        const notesCount = document.getElementById('notesCount');
+        if (notes && notesCount) {
+            notes.addEventListener('input', () => {
+                notesCount.textContent = notes.value.length;
+            });
+        }
+
+        // ========================================
+        // FORM VALIDATION + AJAX SUBMIT
+        // ========================================
+        const form = document.getElementById('betaForm');
+
+        function clearErrors() {
+            document.querySelectorAll('.form-error').forEach(el => el.textContent = '');
+            document.querySelectorAll('.form-field.has-error').forEach(el => el.classList.remove('has-error'));
+        }
+
+        function showError(fieldId, message) {
+            const errorEl = document.querySelector(`.form-error[data-for="${fieldId}"]`);
+            if (errorEl) {
+                errorEl.textContent = message;
+                errorEl.closest('.form-field')?.classList.add('has-error');
+            }
+        }
+
+        form.addEventListener('submit', async (e) => {
+            // Always prevent default — we handle submission manually via AJAX
+            e.preventDefault();
+
+            clearErrors();
+            let hasError = false;
+
+            const name = document.getElementById('betaName').value.trim();
+            const email = document.getElementById('betaEmail').value.trim();
+            const city = document.getElementById('betaCity').value.trim();
+            const sport = document.getElementById('betaSport').value;
+            const frequency = document.getElementById('betaFrequency').value;
+            const device = form.querySelector('input[name="device"]:checked');
+            const consent = document.getElementById('betaConsent').checked;
+
+            if (!name) {
+                showError('betaName', 'Please enter your name');
+                hasError = true;
+            }
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showError('betaEmail', 'Please enter a valid email');
+                hasError = true;
+            }
+            if (!city) {
+                showError('betaCity', 'Please enter your city');
+                hasError = true;
+            }
+            if (!sport) {
+                showError('betaSport', 'Please select a sport');
+                hasError = true;
+            }
+            if (!frequency) {
+                showError('betaFrequency', 'Please select how often you play');
+                hasError = true;
+            }
+            if (!device) {
+                showError('device', 'Please select your device');
+                hasError = true;
+            }
+            if (!consent) {
+                showError('betaConsent', 'Please agree to be contacted');
+                hasError = true;
+            }
+
+            if (hasError) {
+                const firstError = document.querySelector('.form-field.has-error');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    firstError.querySelector('input, select, textarea')?.focus();
+                }
+                return;
+            }
+
+            // -------- AJAX submit to Formspree --------
+            const btn = document.getElementById('betaSubmit');
+            const originalHTML = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+
+            try {
+                const formData = new FormData(form);
+
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' },
+                });
+
+                if (response.ok) {
+                    // Success — redirect to your thank-you page
+                    window.location.href = '/pages/thank-you.html';
+                } else {
+                    // Formspree returns JSON with errors on failure
+                    const data = await response.json().catch(() => ({}));
+                    const msg = data?.errors?.[0]?.message
+                        || 'Something went wrong. Please try again.';
+                    showError('betaEmail', msg);
+
+                    btn.disabled = false;
+                    btn.innerHTML = originalHTML;
+
+                    // Scroll to first error
+                    const firstError = document.querySelector('.form-field.has-error');
+                    if (firstError) {
+                        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }
+            } catch (err) {
+                // Network error — offline, Formspree unreachable, etc.
+                showError('betaEmail', 'Network error. Please check your connection and try again.');
+
+                btn.disabled = false;
+                btn.innerHTML = originalHTML;
+            }
+        });
+
+        // ========================================
+        // REAL-TIME EMAIL VALIDATION
+        // ========================================
+        document.getElementById('betaEmail').addEventListener('blur', function () {
+            const val = this.value.trim();
+            const emailError = document.querySelector('.form-error[data-for="betaEmail"]');
+
+            if (val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+                showError('betaEmail', 'Please enter a valid email');
+            } else {
+                emailError.textContent = '';
+                this.closest('.form-field')?.classList.remove('has-error');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

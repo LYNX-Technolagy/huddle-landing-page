@@ -9,7 +9,6 @@
     SEO & META TAGS
     ======================================== -->
 
-    <!-- Primary Meta Tags -->
     <title>Huddle — Find Pickup Games, Tournaments &amp; Leagues Near You</title>
     <meta name="title" content="Huddle — Find Pickup Games, Tournaments &amp; Leagues Near You" />
     <meta name="description"
@@ -45,10 +44,6 @@
     <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
     <link rel="manifest" href="assets/icons/site.webmanifest" />
 
-    <!-- ========================================
-    REST OF HEAD
-    ======================================== -->
-
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,15 +52,12 @@
         rel="stylesheet" />
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
     <!-- ========================================
-    LOADING SCREEN STYLES (inline for fast loading)
+    LOADING SCREEN STYLES
     ======================================== -->
     <style>
-        /* ========================================
-           LOADING SCREEN — Manga Style
-           ======================================== */
         #loader-wrapper {
             position: fixed;
             top: 0;
@@ -88,7 +80,6 @@
             pointer-events: none;
         }
 
-        /* Basketball bouncing animation — Manga style */
         .loader-ball {
             width: 60px;
             height: 60px;
@@ -131,14 +122,8 @@
         }
 
         @keyframes shadow {
-            0% {
-                transform: translateX(-50%) scale(1);
-                opacity: 0.5;
-            }
-            100% {
-                transform: translateX(-50%) scale(0.6);
-                opacity: 0.15;
-            }
+            0% { transform: translateX(-50%) scale(1); opacity: 0.5; }
+            100% { transform: translateX(-50%) scale(0.6); opacity: 0.15; }
         }
 
         @keyframes spin {
@@ -159,10 +144,7 @@
             text-transform: uppercase;
         }
 
-        .loader-text .dot {
-            animation: dotPulse 1.4s ease-in-out infinite;
-        }
-
+        .loader-text .dot { animation: dotPulse 1.4s ease-in-out infinite; }
         .loader-text .dot:nth-child(2) { animation-delay: 0.2s; }
         .loader-text .dot:nth-child(3) { animation-delay: 0.4s; }
 
@@ -204,9 +186,7 @@
             transition: width 0.3s ease;
         }
 
-        /* ========================================
-           COOKIE CONSENT BANNER — Manga Style
-           ======================================== */
+        /* Cookie banner (unchanged) */
         .cookie-banner {
             position: fixed;
             bottom: 24px;
@@ -266,10 +246,7 @@
             margin: 0;
         }
 
-        .cookie-banner-links {
-            margin-top: 8px;
-            font-size: 0.8rem;
-        }
+        .cookie-banner-links { margin-top: 8px; font-size: 0.8rem; }
 
         .cookie-banner-links a {
             color: #F56A00;
@@ -347,9 +324,6 @@
             box-shadow: 4px 4px 0 #1A1A1A;
         }
 
-        /* ========================================
-           COOKIE MODAL — Manga Style
-           ======================================== */
         .cookie-modal {
             display: none;
             position: fixed;
@@ -379,14 +353,8 @@
         }
 
         @keyframes modalSlide {
-            from {
-                opacity: 0;
-                transform: scale(0.95) translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
+            from { opacity: 0; transform: scale(0.95) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
         .cookie-modal-close {
@@ -481,17 +449,12 @@
             border-color: #F56A00;
         }
 
-        .cookie-option-tag.analytics {
-            background: #F0F0F0;
-            color: #1A1A1A;
-        }
-
+        .cookie-option-tag.analytics,
         .cookie-option-tag.marketing {
             background: #F0F0F0;
             color: #1A1A1A;
         }
 
-        /* Toggle Switch — Manga Style */
         .toggle {
             position: relative;
             width: 44px;
@@ -499,11 +462,7 @@
             flex-shrink: 0;
         }
 
-        .toggle input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
+        .toggle input { opacity: 0; width: 0; height: 0; }
 
         .toggle .slider {
             position: absolute;
@@ -535,10 +494,7 @@
             background: #F7F5F0;
         }
 
-        .toggle input:disabled+.slider {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
+        .toggle input:disabled+.slider { opacity: 0.5; cursor: not-allowed; }
 
         .cookie-modal-actions {
             display: flex;
@@ -555,9 +511,6 @@
             padding: 12px 20px;
         }
 
-        /* ========================================
-           COOKIE TOAST — Manga Style
-           ======================================== */
         .cookie-toast {
             position: fixed;
             bottom: 100px;
@@ -582,19 +535,10 @@
             letter-spacing: 0.5px;
         }
 
-        .cookie-toast.show {
-            transform: translateX(0);
-            opacity: 1;
-        }
+        .cookie-toast.show { transform: translateX(0); opacity: 1; }
 
-        .cookie-toast i {
-            color: #F56A00;
-            font-size: 1.1rem;
-        }
+        .cookie-toast i { color: #F56A00; font-size: 1.1rem; }
 
-        /* ========================================
-           RESPONSIVE — Cookie Banner
-           ======================================== */
         @media (max-width: 968px) {
             .cookie-banner {
                 bottom: 16px;
@@ -602,11 +546,7 @@
                 padding: 20px;
             }
 
-            .cookie-banner-content {
-                flex-direction: column;
-                gap: 14px;
-            }
-
+            .cookie-banner-content { flex-direction: column; gap: 14px; }
             .cookie-banner-icon { display: none; }
 
             .cookie-banner-actions {
@@ -665,42 +605,21 @@
             .cookie-modal-content h3 { font-size: 1.2rem; }
             .cookie-option { padding: 12px 14px; }
 
-            .loader-ball {
-                width: 48px;
-                height: 48px;
-            }
-
-            .loader-ball::after {
-                width: 24px;
-                height: 24px;
-            }
-
-            .loader-text {
-                font-size: 1rem;
-                margin-top: 24px;
-            }
-
+            .loader-ball { width: 48px; height: 48px; }
+            .loader-ball::after { width: 24px; height: 24px; }
+            .loader-text { font-size: 1rem; margin-top: 24px; }
             .loader-progress { width: 160px; }
         }
 
         @media (max-width: 360px) {
-            .loader-ball {
-                width: 40px;
-                height: 40px;
-            }
-
-            .loader-ball::after {
-                width: 20px;
-                height: 20px;
-            }
-
+            .loader-ball { width: 40px; height: 40px; }
+            .loader-ball::after { width: 20px; height: 20px; }
             .loader-text { font-size: 0.9rem; }
             .loader-sub { font-size: 0.65rem; }
             .loader-progress { width: 140px; }
         }
     </style>
 
-    <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css" />
 
 </head>
@@ -766,7 +685,6 @@
             <p class="cookie-modal-sub">Choose which cookies you want to allow.</p>
 
             <div class="cookie-modal-options">
-                <!-- Essential (always required) -->
                 <div class="cookie-option">
                     <div class="cookie-option-info">
                         <span class="cookie-option-name">Essential Cookies</span>
@@ -780,7 +698,6 @@
                     </div>
                 </div>
 
-                <!-- Functional -->
                 <div class="cookie-option">
                     <div class="cookie-option-info">
                         <span class="cookie-option-name">Functional Cookies</span>
@@ -794,7 +711,6 @@
                     </div>
                 </div>
 
-                <!-- Analytics -->
                 <div class="cookie-option">
                     <div class="cookie-option-info">
                         <span class="cookie-option-name">Analytics Cookies</span>
@@ -808,7 +724,6 @@
                     </div>
                 </div>
 
-                <!-- Marketing -->
                 <div class="cookie-option">
                     <div class="cookie-option-info">
                         <span class="cookie-option-name">Marketing Cookies</span>
@@ -849,7 +764,14 @@
                 <li><a href="#features">Features</a></li>
                 <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#beta">Beta</a></li>
-                <li><a href="pages/beta.html" class="btn btn-primary btn-small">Become a Beta Tester</a></li>
+                <li>
+                    <a href="https://huddleza.netlify.app/?install=1"
+                       class="btn btn-primary btn-small"
+                       target="_blank"
+                       rel="noopener">
+                        <i class="fas fa-download"></i> Get the App
+                    </a>
+                </li>
             </ul>
             <button class="mobile-menu" id="menuToggle">
                 <i class="fas fa-bars"></i>
@@ -864,15 +786,19 @@
         <a href="#features">Features</a>
         <a href="#how-it-works">How It Works</a>
         <a href="#beta">Beta</a>
-        <a href="pages/beta.html" class="btn btn-primary btn-small"
-            style="margin-top:16px;width:100%;justify-content:center;">Become a Beta Tester</a>
+        <a href="https://huddleza.netlify.app/?install=1"
+           class="btn btn-primary btn-small"
+           target="_blank"
+           rel="noopener"
+           style="margin-top:16px;width:100%;justify-content:center;">
+            <i class="fas fa-download"></i> Get the App
+        </a>
     </div>
 
     <!-- ========================================
-    HERO — Dynamic Sport Selection
+    HERO
     ======================================== -->
     <section class="hero" id="heroSection">
-        <!-- Speed Lines -->
         <div class="speed-lines">
             <div class="speed-line"></div>
             <div class="speed-line"></div>
@@ -884,7 +810,6 @@
         </div>
         <div class="container">
             <div class="hero-grid">
-                <!-- Left -->
                 <div class="hero-content">
                     <div class="hero-badge">
                         <span class="dot"></span> Beta 1 — Now Open
@@ -901,16 +826,18 @@
                     </p>
 
                     <div class="hero-actions">
-                        <a href="pages/beta.html" class="btn btn-primary">
-                            <i class="fas fa-user-plus"></i> Become a Beta Tester
+                        <a href="https://huddleza.netlify.app/?install=1"
+                           class="btn btn-primary"
+                           target="_blank"
+                           rel="noopener">
+                            <i class="fas fa-download"></i> Get the App
                         </a>
-                        <a href="#how-it-works" class="btn btn-outline">
-                            Learn More
+                        <a href="pages/beta.html" class="btn btn-outline">
+                            <i class="fas fa-user-plus"></i> Become a Beta Tester
                         </a>
                     </div>
                 </div>
 
-                <!-- Right -->
                 <div class="hero-visual">
                     <div class="ring"></div>
                     <div class="ring"></div>
@@ -1025,38 +952,49 @@
     </section>
 
     <!-- ========================================
-    BETA / WAITLIST
+    BETA
     ======================================== -->
     <section class="waitlist" id="beta">
         <div class="container">
             <div class="waitlist-wrapper">
                 <div class="waitlist-content">
-                    <div class="section-label">Beta 1 — Now Open</div>
+                    <div class="section-label">Two Ways In</div>
                     <h2 class="section-title">
-                        Join the <br /><span class="highlight">beta</span>
+                        Try it now <br /><span class="highlight">or join the beta</span>
                     </h2>
                     <p class="section-sub">
-                        Apply for beta access and be among the first to use Huddle. Help shape the platform, get early
-                        access, and earn founder status in your community.
+                        Download the app and start exploring immediately, or apply for the
+                        official beta program for founder perks and direct feedback access.
                     </p>
                     <div class="waitlist-perks">
-                        <span class="perk"><i class="fas fa-bolt"></i> Early access</span>
-                        <span class="perk"><i class="fas fa-gift"></i> Exclusive perks</span>
-                        <span class="perk"><i class="fas fa-crown"></i> Founder status</span>
+                        <span class="perk"><i class="fas fa-bolt"></i> Install in 30 seconds</span>
+                        <span class="perk"><i class="fas fa-gift"></i> Free forever</span>
+                        <span class="perk"><i class="fas fa-crown"></i> Founder perks for beta testers</span>
                     </div>
                 </div>
 
                 <div class="waitlist-form">
-                    <div class="form-title">Apply for Beta</div>
-                    <div class="form-sub">Fill out a quick form and we'll be in touch.</div>
+                    <div class="form-title">Pick Your Path</div>
+                    <div class="form-sub">Both options are free. Beta testers get extra perks.</div>
 
-                    <a href="pages/beta.html" class="btn"
-                        style="width:100%;justify-content:center;margin-top:16px;">
+                    <!-- Primary: Download -->
+                    <a href="https://huddleza.netlify.app/?install=1"
+                       class="btn btn-primary"
+                       target="_blank"
+                       rel="noopener"
+                       style="width:100%;justify-content:center;margin-top:16px;">
+                        <i class="fas fa-download"></i> Get the App
+                    </a>
+
+                    <!-- Secondary: Beta -->
+                    <a href="pages/beta.html"
+                       class="btn btn-outline"
+                       style="width:100%;justify-content:center;margin-top:12px;">
                         <i class="fas fa-user-plus"></i> Become a Beta Tester
                     </a>
 
                     <div class="footnote" style="margin-top:16px;">
-                        <i class="fas fa-lock"></i> Takes 30 seconds. No spam, ever.
+                        <i class="fas fa-lock"></i> Beta testers help shape the product and earn founder status.
                     </div>
                 </div>
             </div>
@@ -1117,24 +1055,14 @@
                 </div>
             </div>
         </div>
-        <!-- Manga "To Be Continued..." -->
         <div class="manga-continued">
             <span>To be continued...</span>
         </div>
     </footer>
 
-    <!-- ========================================
-    SCRIPTS
-    ======================================== -->
     <script src="js/main.js"></script>
 
-    <!-- ========================================
-    LOADING SCREEN SCRIPT (inline for reliability)
-    ======================================== -->
     <script>
-        // ========================================
-        // LOADING SCREEN
-        // ========================================
         (function () {
             const loader = document.getElementById('loader-wrapper');
             const progressBar = document.getElementById('loaderProgressBar');
